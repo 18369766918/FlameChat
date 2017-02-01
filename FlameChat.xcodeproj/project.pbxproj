@@ -16,6 +16,8 @@
 		8DD206581E404EC40058B61E /* FlameChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD206571E404EC40058B61E /* FlameChatTests.swift */; };
 		8DD206631E404EC40058B61E /* FlameChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD206621E404EC40058B61E /* FlameChatUITests.swift */; };
 		8DE646AA1E4182C5006DD195 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DE646A91E4182C5006DD195 /* GoogleService-Info.plist */; };
+		8DE646B81E41900F006DD195 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE646B71E41900F006DD195 /* ComposeViewController.swift */; };
+		8DE646BA1E4196E0006DD195 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE646B91E4196E0006DD195 /* Login.swift */; };
 		A322041D489D2D6BEF507356 /* Pods_FlameChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B40E41B20D331E9FDB26F33 /* Pods_FlameChatUITests.framework */; };
 		AFC85F5B80907182039228B6 /* Pods_FlameChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 170697809FE01C730DC1E00F /* Pods_FlameChat.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,8 @@
 		8DD206621E404EC40058B61E /* FlameChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlameChatUITests.swift; sourceTree = "<group>"; };
 		8DD206641E404EC40058B61E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DE646A91E4182C5006DD195 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8DE646B71E41900F006DD195 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		8DE646B91E4196E0006DD195 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		99D509E6B23C33D94A8D11B8 /* Pods-FlameChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlameChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlameChat/Pods-FlameChat.debug.xcconfig"; sourceTree = "<group>"; };
 		B3ECC3D74028F8BF3A3867B6 /* Pods_FlameChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlameChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEF7E4875090FA4AA9FEC2A /* Pods-FlameChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlameChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlameChat/Pods-FlameChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,7 +134,9 @@
 			isa = PBXGroup;
 			children = (
 				8DD206421E404EC30058B61E /* AppDelegate.swift */,
+				8DE646B91E4196E0006DD195 /* Login.swift */,
 				8DD206441E404EC30058B61E /* ViewController.swift */,
+				8DE646B71E41900F006DD195 /* ComposeViewController.swift */,
 				8DD206461E404EC30058B61E /* Main.storyboard */,
 				8DD206491E404EC30058B61E /* Assets.xcassets */,
 				8DD2064B1E404EC30058B61E /* LaunchScreen.storyboard */,
@@ -450,8 +456,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DE646B81E41900F006DD195 /* ComposeViewController.swift in Sources */,
 				8DD206451E404EC30058B61E /* ViewController.swift in Sources */,
 				8DD206431E404EC30058B61E /* AppDelegate.swift in Sources */,
+				8DE646BA1E4196E0006DD195 /* Login.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
