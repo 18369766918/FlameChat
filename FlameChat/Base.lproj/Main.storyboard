@@ -13,7 +13,7 @@
         <!--Log in-->
         <scene sceneID="hMg-3x-S80">
             <objects>
-                <viewController id="QLn-0J-KHJ" userLabel="Log in" sceneMemberID="viewController">
+                <viewController id="QLn-0J-KHJ" userLabel="Log in" customClass="Login" customModule="FlameChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6wn-Kd-azd"/>
                         <viewControllerLayoutGuide type="bottom" id="3X3-Jm-Vxx"/>
@@ -22,15 +22,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FlameChat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcZ-SZ-XrS">
-                                <rect key="frame" x="166" y="175" width="87" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="         FlameChat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcZ-SZ-XrS">
+                                <rect key="frame" x="16" y="152" width="343" height="45"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email/FlamChat ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G37-Ct-iAv">
+                                <rect key="frame" x="51" y="232" width="288" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Szz-vz-pZt">
+                                <rect key="frame" x="51" y="292" width="288" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7K-Pi-uJf">
+                                <rect key="frame" x="147" y="342" width="81" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Log in">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2166236476" green="0.34206069649999998" blue="0.75656329310000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Szz-vz-pZt" secondAttribute="trailing" constant="20" id="3KR-Pb-VHC"/>
+                            <constraint firstItem="Szz-vz-pZt" firstAttribute="top" secondItem="G37-Ct-iAv" secondAttribute="bottom" constant="30" id="Ji9-gm-9QW"/>
+                            <constraint firstItem="Szz-vz-pZt" firstAttribute="leading" secondItem="EZw-Tg-SkT" secondAttribute="leadingMargin" constant="35" id="LVu-nW-N3h"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="G37-Ct-iAv" secondAttribute="trailing" constant="20" id="MfE-eV-JKM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fcZ-SZ-XrS" secondAttribute="trailing" id="OIQ-HE-L26"/>
+                            <constraint firstItem="G37-Ct-iAv" firstAttribute="top" secondItem="fcZ-SZ-XrS" secondAttribute="bottom" constant="35" id="PoA-lD-kou"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="r7K-Pi-uJf" secondAttribute="trailing" constant="131" id="SBt-WT-58Y"/>
+                            <constraint firstItem="fcZ-SZ-XrS" firstAttribute="leading" secondItem="EZw-Tg-SkT" secondAttribute="leadingMargin" id="aKe-1Z-6OR"/>
+                            <constraint firstItem="G37-Ct-iAv" firstAttribute="leading" secondItem="EZw-Tg-SkT" secondAttribute="leadingMargin" constant="35" id="bWt-Yr-KCX"/>
+                            <constraint firstItem="fcZ-SZ-XrS" firstAttribute="top" secondItem="6wn-Kd-azd" secondAttribute="bottom" constant="88" id="jGz-SW-lAC"/>
+                            <constraint firstItem="r7K-Pi-uJf" firstAttribute="leading" secondItem="EZw-Tg-SkT" secondAttribute="leadingMargin" constant="131" id="uiA-eM-L29"/>
+                            <constraint firstItem="r7K-Pi-uJf" firstAttribute="top" secondItem="Szz-vz-pZt" secondAttribute="bottom" constant="20" id="yjg-fj-aiZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Su5-5D-HOv">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="JVS-zZ-riL">
@@ -50,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="voG-ig-qzi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="15" y="1119"/>
+            <point key="canvasLocation" x="13.6" y="1118.5907046476761"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -65,7 +97,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Rr-vq-TwP">
-                                <rect key="frame" x="16" y="0.0" width="343" height="667"/>
+                                <rect key="frame" x="16" y="64" width="343" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" id="1qk-cY-QoA">
