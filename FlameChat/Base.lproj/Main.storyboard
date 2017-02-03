@@ -46,6 +46,9 @@
                                 <state key="normal" title="Log in">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="login:" destination="QLn-0J-KHJ" eventType="touchUpInside" id="QVg-kB-HGc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2W-w0-dpi">
                                 <rect key="frame" x="127" y="454" width="120" height="33"/>

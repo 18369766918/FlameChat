@@ -21,6 +21,7 @@ class Login: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /* database reference */
         self.firebase = FIRDatabase.database().reference()
         
         if let user = FIRAuth.auth()?.currentUser{
@@ -52,7 +53,6 @@ class Login: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     @IBAction func createAction(_ sender: AnyObject) {
         
         guard let email = self.emailField.text else {
@@ -75,7 +75,7 @@ class Login: UIViewController {
                     self.present(alert, animated: true, completion: nil)
 
                 }else{
-                    self.firebase!.child("users").child(user!.uid).setValue(["userID":user!.uid ])
+                    self.firebase!.child("users").child(user!.uid).setValue(["userID":user!.uid ,"passwd":password, "email": email, "online": false])
                     
                 }
             })
@@ -88,6 +88,35 @@ class Login: UIViewController {
 
         }
     }
+    
+    @IBAction func login(_ sender: AnyObject) {
+        FIRAuth.auth()?.signIn(withEmail: self.emailField.text!, password: self.passwordField.text!)
+        {
+            (user, error) in
+            if error == nil{
+                /** Log in Successfully do something here!! */
+                print("\n\n\nLog in successfully! User: " + self.emailField.text! + "\n\n\n")
+                var user = self.emailField.text!// current logged in user
+                
+                /** change user status (online) to: true */
+                //UNFINISHED
+                
+                /** show login successful alert box */
+                let successAlert = UIAlertController(title: "Welcome back my friend!", message: "", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "Continue", style: .cancel, handler: nil)
+                successAlert.addAction(defaultAction)
+                self.present(successAlert, animated: true, completion: nil)
+
+                /** show the dial viewcontroller */
+                
+            }
+            else{
+                print("Log in ERROR")
+            }
+        }
+    }
+    
+    
     /*
     // MARK: - Navigation
 
