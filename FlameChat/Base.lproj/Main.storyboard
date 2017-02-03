@@ -47,10 +47,22 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2W-w0-dpi">
+                                <rect key="frame" x="127" y="454" width="120" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Create Account">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="createAction:" destination="QLn-0J-KHJ" eventType="touchUpInside" id="Hvf-dQ-PqN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2166236476" green="0.34206069649999998" blue="0.75656329310000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Szz-vz-pZt" secondAttribute="trailing" constant="20" id="3KR-Pb-VHC"/>
+                            <constraint firstItem="y2W-w0-dpi" firstAttribute="top" secondItem="r7K-Pi-uJf" secondAttribute="bottom" constant="70" id="6RA-yd-JoY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="y2W-w0-dpi" secondAttribute="trailing" constant="112" id="JIY-GV-1iK"/>
                             <constraint firstItem="Szz-vz-pZt" firstAttribute="top" secondItem="G37-Ct-iAv" secondAttribute="bottom" constant="30" id="Ji9-gm-9QW"/>
                             <constraint firstItem="Szz-vz-pZt" firstAttribute="leading" secondItem="EZw-Tg-SkT" secondAttribute="leadingMargin" constant="35" id="LVu-nW-N3h"/>
                             <constraint firstAttribute="trailingMargin" secondItem="G37-Ct-iAv" secondAttribute="trailing" constant="20" id="MfE-eV-JKM"/>
@@ -60,6 +72,7 @@
                             <constraint firstItem="fcZ-SZ-XrS" firstAttribute="leading" secondItem="EZw-Tg-SkT" secondAttribute="leadingMargin" id="aKe-1Z-6OR"/>
                             <constraint firstItem="G37-Ct-iAv" firstAttribute="leading" secondItem="EZw-Tg-SkT" secondAttribute="leadingMargin" constant="35" id="bWt-Yr-KCX"/>
                             <constraint firstItem="fcZ-SZ-XrS" firstAttribute="top" secondItem="6wn-Kd-azd" secondAttribute="bottom" constant="88" id="jGz-SW-lAC"/>
+                            <constraint firstItem="y2W-w0-dpi" firstAttribute="leading" secondItem="EZw-Tg-SkT" secondAttribute="leadingMargin" constant="111" id="rWd-zD-u1u"/>
                             <constraint firstItem="r7K-Pi-uJf" firstAttribute="leading" secondItem="EZw-Tg-SkT" secondAttribute="leadingMargin" constant="131" id="uiA-eM-L29"/>
                             <constraint firstItem="r7K-Pi-uJf" firstAttribute="top" secondItem="Szz-vz-pZt" secondAttribute="bottom" constant="20" id="yjg-fj-aiZ"/>
                         </constraints>
@@ -79,6 +92,10 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailField" destination="G37-Ct-iAv" id="9D5-uZ-UsC"/>
+                        <outlet property="passwordField" destination="Szz-vz-pZt" id="luD-Da-F3X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="voG-ig-qzi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
