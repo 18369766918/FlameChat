@@ -28,7 +28,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email/FlamChat ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G37-Ct-iAv">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone/FlamChat ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G37-Ct-iAv">
                                 <rect key="frame" x="51" y="232" width="288" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -60,11 +60,18 @@
                                     <action selector="createAction:" destination="QLn-0J-KHJ" eventType="touchUpInside" id="Hvf-dQ-PqN"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xwS-XJ-ASl">
+                                <rect key="frame" x="118" y="424" width="137" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.2166236476" green="0.34206069649999998" blue="0.75656329310000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Szz-vz-pZt" secondAttribute="trailing" constant="20" id="3KR-Pb-VHC"/>
                             <constraint firstItem="y2W-w0-dpi" firstAttribute="top" secondItem="r7K-Pi-uJf" secondAttribute="bottom" constant="70" id="6RA-yd-JoY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xwS-XJ-ASl" secondAttribute="trailing" constant="123" id="AHc-Rr-BNv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="y2W-w0-dpi" secondAttribute="trailing" constant="112" id="JIY-GV-1iK"/>
                             <constraint firstItem="Szz-vz-pZt" firstAttribute="top" secondItem="G37-Ct-iAv" secondAttribute="bottom" constant="30" id="Ji9-gm-9QW"/>
                             <constraint firstItem="Szz-vz-pZt" firstAttribute="leading" secondItem="EZw-Tg-SkT" secondAttribute="leadingMargin" constant="35" id="LVu-nW-N3h"/>
@@ -72,10 +79,12 @@
                             <constraint firstAttribute="trailingMargin" secondItem="fcZ-SZ-XrS" secondAttribute="trailing" id="OIQ-HE-L26"/>
                             <constraint firstItem="G37-Ct-iAv" firstAttribute="top" secondItem="fcZ-SZ-XrS" secondAttribute="bottom" constant="35" id="PoA-lD-kou"/>
                             <constraint firstAttribute="trailingMargin" secondItem="r7K-Pi-uJf" secondAttribute="trailing" constant="131" id="SBt-WT-58Y"/>
+                            <constraint firstItem="xwS-XJ-ASl" firstAttribute="leading" secondItem="EZw-Tg-SkT" secondAttribute="leadingMargin" constant="123" id="Vne-aS-ak0"/>
                             <constraint firstItem="fcZ-SZ-XrS" firstAttribute="leading" secondItem="EZw-Tg-SkT" secondAttribute="leadingMargin" id="aKe-1Z-6OR"/>
                             <constraint firstItem="G37-Ct-iAv" firstAttribute="leading" secondItem="EZw-Tg-SkT" secondAttribute="leadingMargin" constant="35" id="bWt-Yr-KCX"/>
                             <constraint firstItem="fcZ-SZ-XrS" firstAttribute="top" secondItem="6wn-Kd-azd" secondAttribute="bottom" constant="88" id="jGz-SW-lAC"/>
                             <constraint firstItem="y2W-w0-dpi" firstAttribute="leading" secondItem="EZw-Tg-SkT" secondAttribute="leadingMargin" constant="111" id="rWd-zD-u1u"/>
+                            <constraint firstItem="xwS-XJ-ASl" firstAttribute="top" secondItem="r7K-Pi-uJf" secondAttribute="bottom" constant="40" id="suR-fE-kBh"/>
                             <constraint firstItem="r7K-Pi-uJf" firstAttribute="leading" secondItem="EZw-Tg-SkT" secondAttribute="leadingMargin" constant="131" id="uiA-eM-L29"/>
                             <constraint firstItem="r7K-Pi-uJf" firstAttribute="top" secondItem="Szz-vz-pZt" secondAttribute="bottom" constant="20" id="yjg-fj-aiZ"/>
                         </constraints>
@@ -98,6 +107,7 @@
                     <connections>
                         <outlet property="emailField" destination="G37-Ct-iAv" id="9D5-uZ-UsC"/>
                         <outlet property="passwordField" destination="Szz-vz-pZt" id="luD-Da-F3X"/>
+                        <outlet property="phoneField" destination="xwS-XJ-ASl" id="8Z7-wp-f7z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="voG-ig-qzi" userLabel="First Responder" sceneMemberID="firstResponder"/>
