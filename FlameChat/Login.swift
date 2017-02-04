@@ -103,6 +103,38 @@ class Login: UIViewController {
                 print("\n\n\n" + (current?.email)! + "\n\n\n");
                 print("\n\n\n" + (current?.uid)! + "\n\n\n");
 
+
+               /*
+                self.firebase!.child("users").queryOrdered(byChild: "email").queryEqual(toValue: "abc@abc.com").observeSingleEvent(of: .value, with: { snapshot in
+                    
+                    
+                     var userID: String?
+                    
+                
+                    if let dictionary = snapshot.value as? [String: AnyObject]{
+                  
+                        
+                        
+                    }
+                    
+                       
+                        
+                        
+                        
+                        
+                        //self.navigationItem.title = dictionary["userID"] as? String
+                        //var UID = dictionary["userID"] as? String
+                        //print(UID as? String())
+                    }
+                    
+                    
+                    
+                    
+                })
+                
+                
+               */
+                
                 
                 /** change user status (online) to: true */
                 self.firebase!.child("users").child((current?.uid)!).updateChildValues(["online": true])
