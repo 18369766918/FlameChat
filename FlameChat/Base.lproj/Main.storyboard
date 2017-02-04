@@ -114,6 +114,24 @@
             </objects>
             <point key="canvasLocation" x="13.6" y="1118.5907046476761"/>
         </scene>
+        <!--Dial View Controller-->
+        <scene sceneID="QRF-dU-i8D">
+            <objects>
+                <viewController storyboardIdentifier="dial" id="2j5-qV-vll" customClass="DialViewController" customModule="FlameChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tep-bG-Lak"/>
+                        <viewControllerLayoutGuide type="bottom" id="G44-a8-Qv9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Npq-al-vJi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.59999999999999998" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gj6-NQ-4qm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="878" y="1278"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>

@@ -82,7 +82,7 @@ class Login: UIViewController {
                     self.present(alert, animated: true, completion: nil)
 
                 }else{
-                    self.firebase!.child("users").child(user!.uid).setValue(["passwd":password, "email": email])
+                    self.firebase!.child("users").child(user!.uid).setValue(["passwd":password, "email": email, "phone": phone])
                     self.firebase!.child("id").setValue(phone)
                     self.firebase!.child("id").child(phone).setValue(["passwd":password, "email": email, "online": false])
                     
@@ -98,9 +98,21 @@ class Login: UIViewController {
         }
     }
     
+    func logged(){
+        /** show the dial viewcontroller */
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "dial") as! DialViewController
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMove(toParentViewController: self)
+
+    }
+    
     
     /** log in button */
     @IBAction func login(_ sender: AnyObject) {
+        //var logged = false;
+        
         FIRAuth.auth()?.signIn(withEmail: self.emailField.text!, password: self.passwordField.text!)
         {
             (user, error) in
@@ -111,22 +123,10 @@ class Login: UIViewController {
                 var current = FIRAuth.auth()?.currentUser // current user reference
                 //print("\n\n\n" + (current?.email)! + "\n\n\n");
                 //print("\n\n\n" + (current?.uid)! + "\n\n\n");
-
-
-               /*
-                self.firebase!.child("users").queryOrdered(byChild: "email").queryEqual(toValue: "abc@abc.com").observeSingleEvent(of: .value, with: { snapshot in
-                    
-                    print(snapshot)
-                    
-                })
-                */
-
- 
-                
                 
                 /** change user status (online) to: true */
                 self.firebase!.child("users").child((current?.uid)!).updateChildValues(["online": true])
-
+                
                 
                 /** show login successful alert box */
                 let successAlert = UIAlertController(title: "Welcome back my friend!", message: "", preferredStyle: .alert)
@@ -135,13 +135,13 @@ class Login: UIViewController {
                 self.present(successAlert, animated: true, completion: nil)
 
                 /** show the dial viewcontroller */
-                
-                
+                self.logged()
             }
             else{
                 print("Log in ERROR")
             }
         }
+    
     }
     
     
