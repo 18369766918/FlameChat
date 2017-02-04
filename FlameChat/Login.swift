@@ -53,6 +53,7 @@ class Login: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    /** create account botton */
     @IBAction func createAction(_ sender: AnyObject) {
         
         guard let email = self.emailField.text else {
@@ -89,17 +90,23 @@ class Login: UIViewController {
         }
     }
     
+    /** log in button */
     @IBAction func login(_ sender: AnyObject) {
         FIRAuth.auth()?.signIn(withEmail: self.emailField.text!, password: self.passwordField.text!)
         {
             (user, error) in
             if error == nil{
                 /** Log in Successfully do something here!! */
-                print("\n\n\nLog in successfully! User: " + self.emailField.text! + "\n\n\n")
-                var user = self.emailField.text!// current logged in user
+                print("\n\n\nLog in successfully! User: " + self.emailField.text! + "\n\n\n");
+                
+                var current = FIRAuth.auth()?.currentUser // current user reference
+                print("\n\n\n" + (current?.email)! + "\n\n\n");
+                print("\n\n\n" + (current?.uid)! + "\n\n\n");
+
                 
                 /** change user status (online) to: true */
-                //UNFINISHED
+                self.firebase!.child("users").child((current?.uid)!).updateChildValues(["online": true])
+
                 
                 /** show login successful alert box */
                 let successAlert = UIAlertController(title: "Welcome back my friend!", message: "", preferredStyle: .alert)
@@ -108,6 +115,7 @@ class Login: UIViewController {
                 self.present(successAlert, animated: true, completion: nil)
 
                 /** show the dial viewcontroller */
+                
                 
             }
             else{
