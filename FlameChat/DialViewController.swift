@@ -11,28 +11,38 @@ import Firebase
 
 class DialViewController: UIViewController {
 
-    var firebase: FIRDatabaseReference?
+    //var firebase: FIRDatabaseReference?
+    
+    @IBOutlet weak var phoneNo: UILabel! // display current user's phone No.
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        // current user, not used
+        let current = FIRAuth.auth()?.currentUser
+        
+
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        firebase?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user phone no value
+            let value = snapshot.value as? NSDictionary
+            let phone = value?["phone"] as? String ?? ""
+            
+            self.phoneNo.text = "Your flameID: " + phone; // display phone No.
+
+
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

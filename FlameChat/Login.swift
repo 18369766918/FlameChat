@@ -98,6 +98,10 @@ class Login: UIViewController {
         }
     }
     
+    
+    /** 
+     *   to load a new view controller
+     */
     func logged(){
         /** show the dial viewcontroller */
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "dial") as! DialViewController
@@ -106,6 +110,20 @@ class Login: UIViewController {
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
 
+    }
+    
+    func loggedTest(){
+        /** show the dial navigation controller */
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "dial") as! DialViewController
+        
+        let navController = UINavigationController(rootViewController: popOverVC)
+
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        //popOverVC.didMove(toParentViewController: self)
+        self.present(navController, animated: true, completion: nil)
+        
     }
     
     
@@ -121,8 +139,8 @@ class Login: UIViewController {
                 print("\n\n\nLog in successfully! User: " + self.emailField.text! + "\n\n\n");
                 
                 var current = FIRAuth.auth()?.currentUser // current user reference
-                //print("\n\n\n" + (current?.email)! + "\n\n\n");
-                //print("\n\n\n" + (current?.uid)! + "\n\n\n");
+                print("\n\n\n" + (current?.email)! + "\n\n\n");
+                print( (current?.uid)! + "\n\n\n");
                 
                 /** change user status (online) to: true */
                 firebase!.child("users").child((current?.uid)!).updateChildValues(["online": true])
@@ -135,7 +153,7 @@ class Login: UIViewController {
                 self.present(successAlert, animated: true, completion: nil)
 
                 /** show the dial viewcontroller */
-                self.logged()
+                self.loggedTest()
             }
             else{
                 print("Log in ERROR")
