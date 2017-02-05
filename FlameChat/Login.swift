@@ -16,19 +16,19 @@ class Login: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var phoneField: UITextField!
 
-    var firebase: FIRDatabaseReference?
+    
     
     /** Do any additional setup after loading the view. */
     override func viewDidLoad() {
         super.viewDidLoad()
         
         /* database reference */
-        self.firebase = FIRDatabase.database().reference()
+        firebase = FIRDatabase.database().reference()
         
         
         if let user = FIRAuth.auth()?.currentUser{
             
-            self.firebase!.child("users/\(user.uid)/userID").setValue(user.uid)
+            firebase!.child("users/\(user.uid)/userID").setValue(user.uid)
             
         }else{
             
@@ -42,7 +42,7 @@ class Login: UIViewController {
                     
                     
                 }else{
-                    self.firebase!.child("users").child(user!.uid).setValue(["userID" : user!.uid])
+                    firebase!.child("users").child(user!.uid).setValue(["userID" : user!.uid])
                 }
             })
             
@@ -82,9 +82,9 @@ class Login: UIViewController {
                     self.present(alert, animated: true, completion: nil)
 
                 }else{
-                    self.firebase!.child("users").child(user!.uid).setValue(["passwd":password, "email": email, "phone": phone])
-                    self.firebase!.child("id").setValue(phone)
-                    self.firebase!.child("id").child(phone).setValue(["passwd":password, "email": email, "online": false])
+                    firebase!.child("users").child(user!.uid).setValue(["passwd":password, "email": email, "phone": phone])
+                    firebase!.child("id").setValue(phone)
+                    firebase!.child("id").child(phone).setValue(["passwd":password, "email": email, "online": false])
                     
                 }
             })
@@ -125,7 +125,7 @@ class Login: UIViewController {
                 //print("\n\n\n" + (current?.uid)! + "\n\n\n");
                 
                 /** change user status (online) to: true */
-                self.firebase!.child("users").child((current?.uid)!).updateChildValues(["online": true])
+                firebase!.child("users").child((current?.uid)!).updateChildValues(["online": true])
                 
                 
                 /** show login successful alert box */

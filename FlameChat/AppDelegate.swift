@@ -11,8 +11,13 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
+
+public var firebase: FIRDatabaseReference?
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+   
 
     var window: UIWindow?
 
