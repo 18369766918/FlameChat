@@ -1,35 +1,46 @@
-//
-//  BeCallingView.swift
-//  FlameChat
-//
-//  Created by matthew on 2017-02-10.
-//  Copyright © 2017 Matthew. All rights reserved.
-//
 
 import UIKit
+import Firebase
 
 class BeCallingView: UIViewController {
+    
+    @IBOutlet weak var callerID: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        /** display caller ID */
+        firebase?.child("id").child(myPhoneNo).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user phone no value
+            let value = snapshot.value as? NSDictionary
+            let caller = value?["caller"] as? String ?? ""
+            
+            self.callerID.text! = "Caller ID: " + caller;
+            
+        })
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
     
+    
+    @IBAction func cancel(_ sender: Any) {
+        /** change answer: NO */
+        firebase?.child("id").child(myPhoneNo).updateChildValues(["answer": "NO"])
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        /** present dial view */
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "dial") as! DialViewController
+        
+        self.present(popOverVC, animated: true, completion: nil)
+        
     }
-    */
-
+    
+    @IBAction func answer(_ sender: Any) {
+        
+    }
+    
 }

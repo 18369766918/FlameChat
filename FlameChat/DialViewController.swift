@@ -115,18 +115,5 @@ class DialViewController: UIViewController {
         })
     }
     
-    
-    @IBAction func manCheck(_ sender: Any) {
-        let userID = FIRAuth.auth()?.currentUser?.uid
-        firebase?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user phone no value
-            let value = snapshot.value as? NSDictionary
-            let phone = value?["phone"] as? String ?? ""
-            
-            self.manuallyRef(phone: phone);
-            
-        })
-    }
-    
 
 }// end of class

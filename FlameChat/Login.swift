@@ -32,13 +32,12 @@ class Login: UIViewController {
         /* database reference */
         firebase = FIRDatabase.database().reference()
         
-        /*
+        
         if let user = FIRAuth.auth()?.currentUser{
             
             firebase!.child("users/\(user.uid)/userID").setValue(user.uid)
             
         }else{
-         */
             FIRAuth.auth()?.signInAnonymously(completion: { (user, error) in
                 if error != nil{
                     
@@ -52,9 +51,9 @@ class Login: UIViewController {
                     firebase!.child("users").child(user!.uid).setValue(["userID" : user!.uid])
                 }
             })
-         /*
+         
         }
-        */
+ 
         
     }
 
@@ -160,7 +159,7 @@ class Login: UIViewController {
                     let value = snapshot.value as? NSDictionary
                     let phone = value?["phone"] as? String ?? ""
                     
-                    firebase!.child("id").child(phone).updateChildValues(["online": "true", "call": "false"]);
+                    firebase!.child("id").child(phone).updateChildValues(["online": "true", "call": "false", "answer": ""]);
                     
                 })
                 

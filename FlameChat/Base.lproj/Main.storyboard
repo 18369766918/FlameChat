@@ -156,14 +156,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTX-Fc-XJe">
-                                <rect key="frame" x="154" y="447" width="41" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="maual"/>
-                                <connections>
-                                    <action selector="manCheck:" destination="2j5-qV-vll" eventType="touchUpInside" id="Upq-z5-bYQ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.59999999999999998" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -203,12 +195,53 @@
                     <view key="view" contentMode="scaleToFill" id="ChM-PP-kbJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQx-yi-qDf">
+                                <rect key="frame" x="30" y="537" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancel:" destination="2wu-Ue-DvE" eventType="touchUpInside" id="lLl-Fq-KTR"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0gi-T1-2kX">
+                                <rect key="frame" x="0.0" y="20" width="375" height="63"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caller Id: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfy-i6-TdA">
+                                        <rect key="frame" x="17" y="22" width="256" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCH-WZ-Pyp">
+                                <rect key="frame" x="294" y="537" width="51" height="30"/>
+                                <state key="normal" title="Answer"/>
+                                <connections>
+                                    <action selector="answer:" destination="2wu-Ue-DvE" eventType="touchUpInside" id="42Q-jx-7Ee"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="0gi-T1-2kX" firstAttribute="top" secondItem="ctc-SF-TWQ" secondAttribute="bottom" id="10W-E5-S0n"/>
+                            <constraint firstAttribute="trailing" secondItem="0gi-T1-2kX" secondAttribute="trailing" id="FYS-nO-Qcl"/>
+                            <constraint firstItem="AeM-mt-gyT" firstAttribute="top" secondItem="KCH-WZ-Pyp" secondAttribute="bottom" constant="100" id="Gih-4j-zli"/>
+                            <constraint firstItem="GQx-yi-qDf" firstAttribute="leading" secondItem="ChM-PP-kbJ" secondAttribute="leading" constant="30" id="Q2G-JX-TgS"/>
+                            <constraint firstItem="AeM-mt-gyT" firstAttribute="top" secondItem="GQx-yi-qDf" secondAttribute="bottom" constant="100" id="Xnm-g1-BdT"/>
+                            <constraint firstItem="0gi-T1-2kX" firstAttribute="leading" secondItem="ChM-PP-kbJ" secondAttribute="leading" id="m36-B0-pS4"/>
+                            <constraint firstAttribute="trailing" secondItem="KCH-WZ-Pyp" secondAttribute="trailing" constant="30" id="t3D-aE-nXG"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="callerID" destination="tfy-i6-TdA" id="7ac-vp-6hz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0vL-rO-gty" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-287" y="1899"/>
+            <point key="canvasLocation" x="-287.19999999999999" y="1898.5007496251876"/>
         </scene>
         <!--Mail Box-->
         <scene sceneID="tne-QT-ifu">
