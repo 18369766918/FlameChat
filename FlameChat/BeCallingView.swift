@@ -2,7 +2,7 @@
 import UIKit
 import Firebase
 
-var callerNo = ""
+//var callerNo = ""
 
 class BeCallingView: UIViewController {
     
@@ -17,7 +17,7 @@ class BeCallingView: UIViewController {
             let value = snapshot.value as? NSDictionary
             let caller = value?["caller"] as? String ?? ""
             
-            callerNo = caller;
+            yourPhoneNo = caller;
             
             self.callerID.text! = "Caller ID: " + caller;
             
@@ -33,7 +33,7 @@ class BeCallingView: UIViewController {
     
     @IBAction func cancel(_ sender: Any) {
         /** change answer: NO */
-        firebase?.child("id").child(callerNo).updateChildValues(["answer": "NO"])
+        firebase?.child("id").child(yourPhoneNo).updateChildValues(["answer": "NO"])
         firebase?.child("id").child(myPhoneNo).updateChildValues(["call": "false"])
 
         
@@ -46,10 +46,15 @@ class BeCallingView: UIViewController {
     
     @IBAction func answer(_ sender: Any) {
         /** change answer: NO */
-        firebase?.child("id").child(callerNo).updateChildValues(["answer": "YES"])
+        firebase?.child("id").child(yourPhoneNo).updateChildValues(["answer": "YES"])
         firebase?.child("id").child(myPhoneNo).updateChildValues(["call": "false"])// to be discussed
         
+        /** present chat view */
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chat") as! ChatView
         
+        self.present(popOverVC, animated: true, completion: nil)
+        
+
     }
     
 }

@@ -59,6 +59,15 @@ class DialViewController: UIViewController {
                 if (answer == ""){
                     self.statusField.text! = ""
                 }
+                
+                if (answer == "YES"){
+                    /** present dial view */
+                    let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chat") as! ChatView
+                    
+                    self.present(popOverVC, animated: true, completion: nil)
+                    
+                    return;
+                }
             })
         
     }

@@ -282,8 +282,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3mZ-Ve-Onn">
-                                <rect key="frame" x="22" y="313" width="330" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3mZ-Ve-Onn">
+                                <rect key="frame" x="22" y="308.5" width="331" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -291,6 +291,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUH-5Q-rHs">
                                 <rect key="frame" x="316" y="341.5" width="36" height="30"/>
                                 <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sentMsg:" destination="zvq-Nq-tfU" eventType="touchUpInside" id="Fbo-Li-daG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -298,6 +301,7 @@
                             <constraint firstItem="3mZ-Ve-Onn" firstAttribute="leading" secondItem="xI5-Th-L6W" secondAttribute="leadingMargin" constant="6" id="29V-gh-DbS"/>
                             <constraint firstItem="DM5-7r-fwR" firstAttribute="top" secondItem="LXX-GD-ajc" secondAttribute="bottom" constant="200" id="CuH-g7-2wN"/>
                             <constraint firstItem="LXX-GD-ajc" firstAttribute="top" secondItem="beF-DV-Etx" secondAttribute="bottom" constant="3" id="KTW-px-AdZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3mZ-Ve-Onn" secondAttribute="trailing" constant="6" id="SW6-F7-QRz"/>
                             <constraint firstItem="beF-DV-Etx" firstAttribute="top" secondItem="qh3-fv-FX6" secondAttribute="bottom" constant="20" id="YMP-Vb-44e"/>
                             <constraint firstItem="LXX-GD-ajc" firstAttribute="leading" secondItem="xI5-Th-L6W" secondAttribute="leadingMargin" constant="6" id="b51-hI-zl2"/>
                             <constraint firstItem="RUH-5Q-rHs" firstAttribute="top" secondItem="3mZ-Ve-Onn" secondAttribute="bottom" constant="3" id="jg5-rj-fah"/>
@@ -307,6 +311,11 @@
                             <constraint firstItem="DM5-7r-fwR" firstAttribute="leading" secondItem="xI5-Th-L6W" secondAttribute="leadingMargin" constant="6" id="tH6-tG-3Id"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="composetField" destination="3mZ-Ve-Onn" id="iux-cT-tu8"/>
+                        <outlet property="otherEmailField" destination="beF-DV-Etx" id="Nsa-A8-meA"/>
+                        <outlet property="otherTextFeild" destination="LXX-GD-ajc" id="32W-hY-Qxa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o5m-hd-GE3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
