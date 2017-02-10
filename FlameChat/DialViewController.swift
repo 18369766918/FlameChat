@@ -9,22 +9,26 @@
 import UIKit
 import Firebase
 
+var myPhoneNo = "";
+
 class DialViewController: UIViewController {
 
-    //var firebase: FIRDatabaseReference?
+    //点击空白区域隐藏键盘
+    // touch blank area to hide keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.CallField.resignFirstResponder()
+        
+    }
     
     @IBOutlet weak var phoneNo: UILabel! // display current user's phone No.
     
     @IBOutlet weak var CallField: UITextField!
     
     
-    func refresh(phone: String){
-        
-        
-    
+    internal func refresh(){
+        manuallyRef(phone: myPhoneNo);
     }
  
-    
     func manuallyRef(phone: String){
         
             firebase?.child("id").child(phone).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -39,8 +43,8 @@ class DialViewController: UIViewController {
                     
                     self.present(popOverVC, animated: true, completion: nil)
                     
+                    return;
                 }
-                
             })
         
     }
@@ -48,24 +52,23 @@ class DialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // current user, not used
-        let current = FIRAuth.auth()?.currentUser
-        
-
         let userID = FIRAuth.auth()?.currentUser?.uid
         firebase?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user phone no value
             let value = snapshot.value as? NSDictionary
             let phone = value?["phone"] as? String ?? ""
             
-            self.phoneNo.text = "Your flameID: " + phone; // display phone No.
+            myPhoneNo = phone;
             
-            //self.refresh(phone: phone); // TEST TEST TEST POAWOEPWORPOPFDOBPDFOBPDGOBPOGBPFGOBPOFPGOBPDOGBPFOGPBOFPGOB
-
+            self.phoneNo.text = "Your flameID: " + phone; // display phone No.
+           
         }) { (error) in
             print(error.localizedDescription)
         }
         
+        /** tested! */
+        var timer: Timer;
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.refresh), userInfo: nil, repeats: true);
         
     }
 
@@ -95,7 +98,6 @@ class DialViewController: UIViewController {
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "login") as! Login
         
         self.present(popOverVC, animated: true, completion: nil)
-        
         
     }
 

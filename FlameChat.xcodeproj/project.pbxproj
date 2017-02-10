@@ -266,6 +266,9 @@
 						DevelopmentTeam = 6K54J8U3S9;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.WAC = {
 								enabled = 1;
 							};
