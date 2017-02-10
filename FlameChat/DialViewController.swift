@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 
 var myPhoneNo = "";
+var yourPhoneNo = "";
 
 class DialViewController: UIViewController {
 
@@ -20,11 +21,13 @@ class DialViewController: UIViewController {
         
     }
     
+    @IBOutlet weak var statusField: UILabel!
+    
     @IBOutlet weak var phoneNo: UILabel! // display current user's phone No.
     
     @IBOutlet weak var CallField: UITextField!
     
-    
+
     internal func refresh(){
         manuallyRef(phone: myPhoneNo);
     }
@@ -35,6 +38,7 @@ class DialViewController: UIViewController {
                 // Get call information
                 let value = snapshot.value as? NSDictionary
                 let call = value?["call"] as? String ?? ""
+                let answer = value?["answer"] as? String ?? ""
                 
                 if (call == "true"){
                     
@@ -44,6 +48,16 @@ class DialViewController: UIViewController {
                     self.present(popOverVC, animated: true, completion: nil)
                     
                     return;
+
+                }
+                
+                if (answer == "NO"){
+                    self.statusField.text! = "No answer."
+                    firebase!.child("id").child(myPhoneNo).updateChildValues(["answer": ""]);
+                }
+                
+                if (answer == ""){
+                    self.statusField.text! = ""
                 }
             })
         
@@ -66,9 +80,9 @@ class DialViewController: UIViewController {
             print(error.localizedDescription)
         }
         
-        /** tested! */
+        /** waitnig for calling! */
         var timer: Timer;
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.refresh), userInfo: nil, repeats: true);
+        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.refresh), userInfo: nil, repeats: true);
         
     }
 
@@ -103,6 +117,7 @@ class DialViewController: UIViewController {
 
     @IBAction func call(_ sender: Any) {
         let targetPhone = self.CallField!.text;
+        yourPhoneNo = targetPhone!;
         
         let userID = FIRAuth.auth()?.currentUser?.uid
         firebase?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -113,6 +128,8 @@ class DialViewController: UIViewController {
             
             firebase?.child("id").child(targetPhone!).updateChildValues(["call": "true", "caller": phone]);
         })
+        
+        self.statusField.text! = "Calling..."
     }
     
 
