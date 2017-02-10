@@ -152,8 +152,17 @@ class Login: UIViewController {
                 print("\n\n\n" + (current?.email)! + "\n\n\n");
                 print( (current?.uid)! + "\n\n\n");
                 
+                
                 /** change user status (online) to: true */
-                firebase!.child("users").child((current?.uid)!).updateChildValues(["online": true])
+                let userID = FIRAuth.auth()?.currentUser?.uid
+                firebase?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+                    // Get user phone no value
+                    let value = snapshot.value as? NSDictionary
+                    let phone = value?["phone"] as? String ?? ""
+                    
+                    firebase!.child("id").child(phone).updateChildValues(["online": true]);
+                    
+                })
                 
                 
                 /** show login successful alert box */
