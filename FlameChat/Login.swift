@@ -16,6 +16,13 @@ class Login: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var phoneField: UITextField!
 
+    //点击空白区域隐藏键盘
+    // touch blank area to hide keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.emailField.resignFirstResponder()
+        self.passwordField.resignFirstResponder()
+        self.phoneField.resignFirstResponder()
+    }
     
     
     /** Do any additional setup after loading the view. */
