@@ -270,49 +270,50 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="contents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXX-GD-ajc">
-                                <rect key="frame" x="22" y="64" width="337" height="114"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="other:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXX-GD-ajc">
+                                <rect key="frame" x="22" y="64" width="337" height="77"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Me:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DM5-7r-fwR">
-                                <rect key="frame" x="22" y="284.5" width="29" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3mZ-Ve-Onn">
-                                <rect key="frame" x="22" y="308.5" width="331" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3mZ-Ve-Onn">
+                                <rect key="frame" x="22" y="268.5" width="331" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUH-5Q-rHs">
-                                <rect key="frame" x="316" y="341.5" width="36" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUH-5Q-rHs">
+                                <rect key="frame" x="316" y="301.5" width="36" height="30"/>
                                 <state key="normal" title="Send"/>
                                 <connections>
                                     <action selector="sentMsg:" destination="zvq-Nq-tfU" eventType="touchUpInside" id="Fbo-Li-daG"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="mine:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJH-96-XNC">
+                                <rect key="frame" x="22" y="164" width="330" height="73"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="3mZ-Ve-Onn" firstAttribute="leading" secondItem="xI5-Th-L6W" secondAttribute="leadingMargin" constant="6" id="29V-gh-DbS"/>
-                            <constraint firstItem="DM5-7r-fwR" firstAttribute="top" secondItem="LXX-GD-ajc" secondAttribute="bottom" constant="200" id="CuH-g7-2wN"/>
+                            <constraint firstItem="3mZ-Ve-Onn" firstAttribute="top" secondItem="kJH-96-XNC" secondAttribute="bottom" constant="6" id="EY4-VT-1gs"/>
                             <constraint firstItem="LXX-GD-ajc" firstAttribute="top" secondItem="beF-DV-Etx" secondAttribute="bottom" constant="3" id="KTW-px-AdZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3mZ-Ve-Onn" secondAttribute="trailing" constant="6" id="SW6-F7-QRz"/>
+                            <constraint firstItem="kJH-96-XNC" firstAttribute="leading" secondItem="xI5-Th-L6W" secondAttribute="leadingMargin" constant="6" id="UXu-AF-rZz"/>
                             <constraint firstItem="beF-DV-Etx" firstAttribute="top" secondItem="qh3-fv-FX6" secondAttribute="bottom" constant="20" id="YMP-Vb-44e"/>
                             <constraint firstItem="LXX-GD-ajc" firstAttribute="leading" secondItem="xI5-Th-L6W" secondAttribute="leadingMargin" constant="6" id="b51-hI-zl2"/>
+                            <constraint firstItem="kJH-96-XNC" firstAttribute="top" secondItem="LXX-GD-ajc" secondAttribute="bottom" constant="10" id="cjV-aB-lcA"/>
                             <constraint firstItem="RUH-5Q-rHs" firstAttribute="top" secondItem="3mZ-Ve-Onn" secondAttribute="bottom" constant="3" id="jg5-rj-fah"/>
                             <constraint firstItem="beF-DV-Etx" firstAttribute="leading" secondItem="xI5-Th-L6W" secondAttribute="leadingMargin" constant="6" id="lTJ-VX-Kz2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RUH-5Q-rHs" secondAttribute="trailing" constant="7" id="o3y-Rg-5cf"/>
-                            <constraint firstItem="3mZ-Ve-Onn" firstAttribute="top" secondItem="DM5-7r-fwR" secondAttribute="bottom" constant="3" id="ryl-bb-kp8"/>
-                            <constraint firstItem="DM5-7r-fwR" firstAttribute="leading" secondItem="xI5-Th-L6W" secondAttribute="leadingMargin" constant="6" id="tH6-tG-3Id"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="composetField" destination="3mZ-Ve-Onn" id="iux-cT-tu8"/>
+                        <outlet property="myTextField" destination="kJH-96-XNC" id="Q5V-WX-h3V"/>
                         <outlet property="otherEmailField" destination="beF-DV-Etx" id="Nsa-A8-meA"/>
                         <outlet property="otherTextFeild" destination="LXX-GD-ajc" id="32W-hY-Qxa"/>
                     </connections>
