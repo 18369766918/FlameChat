@@ -160,7 +160,7 @@ class Login: UIViewController {
                     let value = snapshot.value as? NSDictionary
                     let phone = value?["phone"] as? String ?? ""
                     
-                    firebase!.child("id").child(phone).updateChildValues(["online": true]);
+                    firebase!.child("id").child(phone).updateChildValues(["online": "true", "call": "false"]);
                     
                 })
                 

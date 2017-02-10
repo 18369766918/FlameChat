@@ -123,13 +123,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nNa-9d-y75">
-                                <rect key="frame" x="139" y="158" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mb8-Lx-gJW">
                                 <rect key="frame" x="269" y="23" width="96" height="30"/>
                                 <state key="normal" title="Voicemail Box"/>
@@ -150,12 +143,38 @@
                                     <action selector="logout:" destination="2j5-qV-vll" eventType="touchUpInside" id="evS-DT-sSG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rN2-SA-f9H">
+                                <rect key="frame" x="309" y="607" width="30" height="30"/>
+                                <state key="normal" title="Call"/>
+                                <connections>
+                                    <action selector="call:" destination="2j5-qV-vll" eventType="touchUpInside" id="Ltl-41-nFd"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nNa-9d-y75">
+                                <rect key="frame" x="22" y="77" width="331" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTX-Fc-XJe">
+                                <rect key="frame" x="154" y="447" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="maual"/>
+                                <connections>
+                                    <action selector="manCheck:" destination="2j5-qV-vll" eventType="touchUpInside" id="Upq-z5-bYQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.59999999999999998" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="rN2-SA-f9H" secondAttribute="trailing" constant="20" id="ATJ-PF-7nq"/>
+                            <constraint firstItem="nNa-9d-y75" firstAttribute="top" secondItem="u07-FT-F9F" secondAttribute="bottom" constant="3" id="NJI-B3-S06"/>
                             <constraint firstItem="8KB-Dj-bJt" firstAttribute="leading" secondItem="Npq-al-vJi" secondAttribute="leadingMargin" constant="6" id="P9i-wu-y8k"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nNa-9d-y75" secondAttribute="trailing" constant="6" id="ToO-uR-O0q"/>
                             <constraint firstItem="u07-FT-F9F" firstAttribute="top" secondItem="mb8-Lx-gJW" secondAttribute="bottom" id="WPW-ZV-7qE"/>
+                            <constraint firstItem="nNa-9d-y75" firstAttribute="leading" secondItem="Npq-al-vJi" secondAttribute="leadingMargin" constant="6" id="Wir-LN-zBf"/>
                             <constraint firstItem="mb8-Lx-gJW" firstAttribute="top" secondItem="Tep-bG-Lak" secondAttribute="bottom" constant="3" id="mQQ-du-ig3"/>
+                            <constraint firstItem="G44-a8-Qv9" firstAttribute="top" secondItem="rN2-SA-f9H" secondAttribute="bottom" constant="30" id="pYM-cs-DZg"/>
                             <constraint firstItem="8KB-Dj-bJt" firstAttribute="top" secondItem="Tep-bG-Lak" secondAttribute="bottom" constant="3" id="xv0-UO-S6E"/>
                             <constraint firstItem="mb8-Lx-gJW" firstAttribute="trailing" secondItem="Npq-al-vJi" secondAttribute="trailingMargin" constant="6" id="ytw-vI-2GW"/>
                             <constraint firstItem="u07-FT-F9F" firstAttribute="leading" secondItem="Npq-al-vJi" secondAttribute="leadingMargin" constant="6" id="zRh-GH-Bjj"/>
@@ -165,12 +184,31 @@
                         <barButtonItem key="rightBarButtonItem" title="Voicemail Box" id="RGE-2u-IhI"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="CallField" destination="nNa-9d-y75" id="LLA-Fg-O4M"/>
                         <outlet property="phoneNo" destination="u07-FT-F9F" id="Eem-07-qlr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gj6-NQ-4qm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-287.19999999999999" y="1132.9835082458771"/>
+        </scene>
+        <!--Be Calling View-->
+        <scene sceneID="mgb-hW-RYJ">
+            <objects>
+                <viewController storyboardIdentifier="beCalling" id="2wu-Ue-DvE" customClass="BeCallingView" customModule="FlameChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ctc-SF-TWQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="AeM-mt-gyT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ChM-PP-kbJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0vL-rO-gty" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-287" y="1899"/>
         </scene>
         <!--Mail Box-->
         <scene sceneID="tne-QT-ifu">

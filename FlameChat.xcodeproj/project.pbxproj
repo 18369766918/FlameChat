@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7E27CA9B6150A74FD1E4B48A /* Pods_FlameChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3ECC3D74028F8BF3A3867B6 /* Pods_FlameChatTests.framework */; };
 		8D7F58F01E459011006D1A19 /* DialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7F58EF1E459011006D1A19 /* DialViewController.swift */; };
+		8D80D7661E4E3F7B002FC5F2 /* BeCallingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D80D7651E4E3F7B002FC5F2 /* BeCallingView.swift */; };
 		8D8A3D251E482F6E00E87D07 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8A3D241E482F6E00E87D07 /* ExternalAccessory.framework */; };
 		8DD206431E404EC30058B61E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD206421E404EC30058B61E /* AppDelegate.swift */; };
 		8DD206451E404EC30058B61E /* mailBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD206441E404EC30058B61E /* mailBox.swift */; };
@@ -48,6 +49,7 @@
 		54E853E37EA234DD64B96A34 /* Pods-FlameChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlameChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlameChatTests/Pods-FlameChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		78F942AAFBFED08DC2D4B109 /* Pods-FlameChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlameChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlameChatTests/Pods-FlameChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D7F58EF1E459011006D1A19 /* DialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialViewController.swift; sourceTree = "<group>"; };
+		8D80D7651E4E3F7B002FC5F2 /* BeCallingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeCallingView.swift; sourceTree = "<group>"; };
 		8D8A3D241E482F6E00E87D07 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		8D8A3D261E482F6E00E87D07 /* FlameChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlameChat.entitlements; sourceTree = "<group>"; };
 		8DD2063F1E404EC30058B61E /* FlameChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlameChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +145,7 @@
 				8DD206421E404EC30058B61E /* AppDelegate.swift */,
 				8DE646B91E4196E0006DD195 /* Login.swift */,
 				8D7F58EF1E459011006D1A19 /* DialViewController.swift */,
+				8D80D7651E4E3F7B002FC5F2 /* BeCallingView.swift */,
 				8DD206441E404EC30058B61E /* mailBox.swift */,
 				8DE646B71E41900F006DD195 /* ComposeViewController.swift */,
 				8DD206461E404EC30058B61E /* Main.storyboard */,
@@ -473,6 +476,7 @@
 			files = (
 				8DE646B81E41900F006DD195 /* ComposeViewController.swift in Sources */,
 				8DD206451E404EC30058B61E /* mailBox.swift in Sources */,
+				8D80D7661E4E3F7B002FC5F2 /* BeCallingView.swift in Sources */,
 				8DD206431E404EC30058B61E /* AppDelegate.swift in Sources */,
 				8DE646BA1E4196E0006DD195 /* Login.swift in Sources */,
 				8D7F58F01E459011006D1A19 /* DialViewController.swift in Sources */,

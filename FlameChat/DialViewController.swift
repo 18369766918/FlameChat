@@ -15,6 +15,36 @@ class DialViewController: UIViewController {
     
     @IBOutlet weak var phoneNo: UILabel! // display current user's phone No.
     
+    @IBOutlet weak var CallField: UITextField!
+    
+    
+    func refresh(phone: String){
+        
+        
+    
+    }
+ 
+    
+    func manuallyRef(phone: String){
+        
+            firebase?.child("id").child(phone).observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get call information
+                let value = snapshot.value as? NSDictionary
+                let call = value?["call"] as? String ?? ""
+                
+                if (call == "true"){
+                    
+                    /** show the beCalling view */
+                    let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "beCalling") as! BeCallingView
+                    
+                    self.present(popOverVC, animated: true, completion: nil)
+                    
+                }
+                
+            })
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,7 +59,8 @@ class DialViewController: UIViewController {
             let phone = value?["phone"] as? String ?? ""
             
             self.phoneNo.text = "Your flameID: " + phone; // display phone No.
-
+            
+            //self.refresh(phone: phone); // TEST TEST TEST POAWOEPWORPOPFDOBPDFOBPDGOBPOGBPFGOBPOFPGOBPDOGBPFOGPBOFPGOB
 
         }) { (error) in
             print(error.localizedDescription)
@@ -51,7 +82,7 @@ class DialViewController: UIViewController {
             let value = snapshot.value as? NSDictionary
             let phone = value?["phone"] as? String ?? ""
             
-            firebase!.child("id").child(phone).updateChildValues(["online": false]);
+            firebase!.child("id").child(phone).updateChildValues(["online": "false"]);
             
         })
 
@@ -68,5 +99,32 @@ class DialViewController: UIViewController {
         
     }
 
+    @IBAction func call(_ sender: Any) {
+        let targetPhone = self.CallField!.text;
+        
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        firebase?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user phone no value
+            let value = snapshot.value as? NSDictionary
+            let phone = value?["phone"] as? String ?? ""
+            
+            
+            firebase?.child("id").child(targetPhone!).updateChildValues(["call": "true", "caller": phone]);
+        })
+    }
+    
+    
+    @IBAction func manCheck(_ sender: Any) {
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        firebase?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user phone no value
+            let value = snapshot.value as? NSDictionary
+            let phone = value?["phone"] as? String ?? ""
+            
+            self.manuallyRef(phone: phone);
+            
+        })
+    }
+    
 
-}
+}// end of class
