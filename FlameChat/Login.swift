@@ -25,13 +25,13 @@ class Login: UIViewController {
         /* database reference */
         firebase = FIRDatabase.database().reference()
         
-        
+        /*
         if let user = FIRAuth.auth()?.currentUser{
             
             firebase!.child("users/\(user.uid)/userID").setValue(user.uid)
             
         }else{
-            
+         */
             FIRAuth.auth()?.signInAnonymously(completion: { (user, error) in
                 if error != nil{
                     
@@ -45,9 +45,9 @@ class Login: UIViewController {
                     firebase!.child("users").child(user!.uid).setValue(["userID" : user!.uid])
                 }
             })
-            
+         /*
         }
-        
+        */
         
     }
 
@@ -82,10 +82,13 @@ class Login: UIViewController {
                     self.present(alert, animated: true, completion: nil)
 
                 }else{
-                    firebase!.child("users").child(user!.uid).setValue(["passwd":password, "email": email, "phone": phone])
-                    firebase!.child("id").setValue(phone)
+                    firebase!.child("users").child(user!.uid).setValue(["passwd":password, "email": email, "phone": phone, "userID": user!.uid])
                     firebase!.child("id").child(phone).setValue(["passwd":password, "email": email, "online": false])
-                    
+                    /** show sign up successful message */
+                    let alert = UIAlertController(title: "Thank you!", message: "Welcome, our new member!", preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "Start chat now!", style: .cancel, handler: nil)
+                    alert.addAction(defaultAction)
+                    self.present(alert, animated: true, completion: nil)
                 }
             })
         }else{
@@ -147,7 +150,7 @@ class Login: UIViewController {
                 
                 
                 /** show login successful alert box */
-                let successAlert = UIAlertController(title: "Welcome back my friend!", message: "", preferredStyle: .alert)
+                let successAlert = UIAlertController(title: "Welcome back friend!", message: "", preferredStyle: .alert)
                 let defaultAction = UIAlertAction(title: "Continue", style: .cancel, handler: nil)
                 successAlert.addAction(defaultAction)
                 self.present(successAlert, animated: true, completion: nil)
