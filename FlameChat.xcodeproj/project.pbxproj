@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		7E27CA9B6150A74FD1E4B48A /* Pods_FlameChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3ECC3D74028F8BF3A3867B6 /* Pods_FlameChatTests.framework */; };
+		8D37D7CC1E4F61010047EF0E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D37D7CB1E4F61010047EF0E /* logo.png */; };
+		8D37D7D11E4F61D40047EF0E /* 180.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D37D7CF1E4F61D40047EF0E /* 180.png */; };
+		8D37D7D21E4F61D40047EF0E /* 120.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D37D7D01E4F61D40047EF0E /* 120.png */; };
+		8D37D7D41E4F622A0047EF0E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D37D7D31E4F62290047EF0E /* icon.png */; };
+		8D37D7D61E4F64A30047EF0E /* grass.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8D37D7D51E4F64A30047EF0E /* grass.jpg */; };
 		8D7F58F01E459011006D1A19 /* DialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7F58EF1E459011006D1A19 /* DialViewController.swift */; };
 		8D80D7661E4E3F7B002FC5F2 /* BeCallingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D80D7651E4E3F7B002FC5F2 /* BeCallingView.swift */; };
 		8D80D7681E4E77B6002FC5F2 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D80D7671E4E77B6002FC5F2 /* ChatView.swift */; };
@@ -49,6 +54,11 @@
 		4B40E41B20D331E9FDB26F33 /* Pods_FlameChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlameChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54E853E37EA234DD64B96A34 /* Pods-FlameChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlameChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlameChatTests/Pods-FlameChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		78F942AAFBFED08DC2D4B109 /* Pods-FlameChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlameChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlameChatTests/Pods-FlameChatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8D37D7CB1E4F61010047EF0E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		8D37D7CF1E4F61D40047EF0E /* 180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 180.png; sourceTree = "<group>"; };
+		8D37D7D01E4F61D40047EF0E /* 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120.png; sourceTree = "<group>"; };
+		8D37D7D31E4F62290047EF0E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		8D37D7D51E4F64A30047EF0E /* grass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grass.jpg; sourceTree = "<group>"; };
 		8D7F58EF1E459011006D1A19 /* DialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialViewController.swift; sourceTree = "<group>"; };
 		8D80D7651E4E3F7B002FC5F2 /* BeCallingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeCallingView.swift; sourceTree = "<group>"; };
 		8D80D7671E4E77B6002FC5F2 /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
@@ -118,9 +128,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8D37D7CA1E4F60F30047EF0E /* images */ = {
+			isa = PBXGroup;
+			children = (
+				8D37D7D51E4F64A30047EF0E /* grass.jpg */,
+				8D37D7CF1E4F61D40047EF0E /* 180.png */,
+				8D37D7D01E4F61D40047EF0E /* 120.png */,
+				8D37D7D31E4F62290047EF0E /* icon.png */,
+				8D37D7CB1E4F61010047EF0E /* logo.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		8DD206361E404EC30058B61E = {
 			isa = PBXGroup;
 			children = (
+				8D37D7CA1E4F60F30047EF0E /* images */,
 				8DD206411E404EC30058B61E /* FlameChat */,
 				8DD206561E404EC40058B61E /* FlameChatTests */,
 				8DD206611E404EC40058B61E /* FlameChatUITests */,
@@ -315,7 +338,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DD2064D1E404EC30058B61E /* LaunchScreen.storyboard in Resources */,
+				8D37D7CC1E4F61010047EF0E /* logo.png in Resources */,
+				8D37D7D11E4F61D40047EF0E /* 180.png in Resources */,
+				8D37D7D61E4F64A30047EF0E /* grass.jpg in Resources */,
 				8DE646AA1E4182C5006DD195 /* GoogleService-Info.plist in Resources */,
+				8D37D7D41E4F622A0047EF0E /* icon.png in Resources */,
+				8D37D7D21E4F61D40047EF0E /* 120.png in Resources */,
 				8DD2064A1E404EC30058B61E /* Assets.xcassets in Resources */,
 				8DD206481E404EC30058B61E /* Main.storyboard in Resources */,
 			);

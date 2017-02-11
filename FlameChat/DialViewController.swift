@@ -87,10 +87,14 @@ class DialViewController: UIViewController {
     
     @IBAction func logout(_ sender: Any) {
         /** change user status (online) to: false */
-        firebase!.child("users").child(myPhoneNo).updateChildValues(["status": "offline"]);
+        
 
-        myPhoneNo = "";
+        //myPhoneNo = "";
         yourPhoneNo = "";
+        firebase!.child("users").child(myPhoneNo).updateChildValues(["status": "offline"])
+        
+        
+        
         
         logout_newview();
         

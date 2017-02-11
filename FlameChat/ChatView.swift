@@ -40,6 +40,7 @@ class ChatView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         
         /** display other's email */
         firebase?.child("users").child(yourPhoneNo).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -85,6 +86,8 @@ class ChatView: UIViewController {
         firebase?.child("users").child(myPhoneNo).updateChildValues(["caller": ""]);
 
         yourPhoneNo = "";
+        
+        
         
         /** present dial view */
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "dial") as! DialViewController

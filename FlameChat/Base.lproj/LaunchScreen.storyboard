@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,27 +22,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Alpha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B73-39-Clq">
-                                <rect key="frame" x="272" y="306" width="44" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alpha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B73-39-Clq">
+                                <rect key="frame" x="267" y="210" width="44" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FlameChat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCb-z8-DTT">
-                                <rect key="frame" x="103" y="320" width="176" height="42"/>
+                                <rect key="frame" x="103" y="220" width="168" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="jUi-uy-se9">
+                                <rect key="frame" x="131" y="313" width="110" height="92"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="92" id="fAd-3Q-fYw"/>
+                                    <constraint firstAttribute="width" constant="110" id="xzi-EF-XMk"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.2166236476" green="0.34206069649999998" blue="0.75656329310000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="B73-39-Clq" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="251" id="5p5-4E-4Db"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jCb-z8-DTT" secondAttribute="trailing" constant="80" id="Uav-kx-DTF"/>
-                            <constraint firstItem="jCb-z8-DTT" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="300" id="ZO8-rs-pJd"/>
-                            <constraint firstItem="B73-39-Clq" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="300" id="eUw-4t-ojx"/>
+                            <constraint firstItem="jUi-uy-se9" firstAttribute="top" secondItem="jCb-z8-DTT" secondAttribute="bottom" constant="20" id="71o-eX-zIZ"/>
+                            <constraint firstItem="jCb-z8-DTT" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="200" id="ZO8-rs-pJd"/>
+                            <constraint firstItem="B73-39-Clq" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="190" id="eUw-4t-ojx"/>
+                            <constraint firstItem="jUi-uy-se9" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="131" id="kbl-ht-ujp"/>
                             <constraint firstItem="jCb-z8-DTT" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="87" id="pMX-J9-8na"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="B73-39-Clq" secondAttribute="trailing" constant="48" id="rBo-7O-qE1"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -51,4 +58,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon.png" width="244" height="215"/>
+    </resources>
 </document>
