@@ -276,37 +276,51 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3mZ-Ve-Onn">
-                                <rect key="frame" x="22" y="268.5" width="331" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUH-5Q-rHs">
-                                <rect key="frame" x="316" y="301.5" width="36" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUH-5Q-rHs">
+                                <rect key="frame" x="316" y="366" width="36" height="30"/>
                                 <state key="normal" title="Send"/>
                                 <connections>
                                     <action selector="sentMsg:" destination="zvq-Nq-tfU" eventType="touchUpInside" id="Fbo-Li-daG"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="mine:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJH-96-XNC">
-                                <rect key="frame" x="22" y="164" width="330" height="73"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mine:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJH-96-XNC">
+                                <rect key="frame" x="310" y="204.5" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJ2-od-pMO">
+                                <rect key="frame" x="167" y="437" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="fnj-xI-MoF"/>
+                                </constraints>
+                                <state key="normal" title="End"/>
+                                <connections>
+                                    <action selector="end:" destination="zvq-Nq-tfU" eventType="touchUpInside" id="bcM-Qn-zJy"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3mZ-Ve-Onn">
+                                <rect key="frame" x="22" y="231.5" width="331" height="131.5"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="3mZ-Ve-Onn" firstAttribute="leading" secondItem="xI5-Th-L6W" secondAttribute="leadingMargin" constant="6" id="29V-gh-DbS"/>
                             <constraint firstItem="3mZ-Ve-Onn" firstAttribute="top" secondItem="kJH-96-XNC" secondAttribute="bottom" constant="6" id="EY4-VT-1gs"/>
                             <constraint firstItem="LXX-GD-ajc" firstAttribute="top" secondItem="beF-DV-Etx" secondAttribute="bottom" constant="3" id="KTW-px-AdZ"/>
+                            <constraint firstItem="jJ2-od-pMO" firstAttribute="centerX" secondItem="LXX-GD-ajc" secondAttribute="centerX" id="SUk-uO-166"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3mZ-Ve-Onn" secondAttribute="trailing" constant="6" id="SW6-F7-QRz"/>
-                            <constraint firstItem="kJH-96-XNC" firstAttribute="leading" secondItem="xI5-Th-L6W" secondAttribute="leadingMargin" constant="6" id="UXu-AF-rZz"/>
+                            <constraint firstItem="RUH-5Q-rHs" firstAttribute="top" secondItem="3mZ-Ve-Onn" secondAttribute="bottom" constant="3" id="VgA-pJ-a56"/>
                             <constraint firstItem="beF-DV-Etx" firstAttribute="top" secondItem="qh3-fv-FX6" secondAttribute="bottom" constant="20" id="YMP-Vb-44e"/>
                             <constraint firstItem="LXX-GD-ajc" firstAttribute="leading" secondItem="xI5-Th-L6W" secondAttribute="leadingMargin" constant="6" id="b51-hI-zl2"/>
-                            <constraint firstItem="kJH-96-XNC" firstAttribute="top" secondItem="LXX-GD-ajc" secondAttribute="bottom" constant="10" id="cjV-aB-lcA"/>
-                            <constraint firstItem="RUH-5Q-rHs" firstAttribute="top" secondItem="3mZ-Ve-Onn" secondAttribute="bottom" constant="3" id="jg5-rj-fah"/>
+                            <constraint firstItem="cyG-a0-0Kp" firstAttribute="top" secondItem="jJ2-od-pMO" secondAttribute="bottom" constant="200" id="cEb-ti-jI1"/>
+                            <constraint firstItem="jJ2-od-pMO" firstAttribute="top" secondItem="3mZ-Ve-Onn" secondAttribute="bottom" constant="74" id="chP-ob-aj6"/>
+                            <constraint firstItem="kJH-96-XNC" firstAttribute="top" secondItem="LXX-GD-ajc" secondAttribute="bottom" constant="120" id="cjV-aB-lcA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kJH-96-XNC" secondAttribute="trailing" constant="7" id="dWa-Cc-Wm5"/>
+                            <constraint firstItem="jJ2-od-pMO" firstAttribute="leading" secondItem="xI5-Th-L6W" secondAttribute="leading" constant="167" id="fzq-ib-huu"/>
                             <constraint firstItem="beF-DV-Etx" firstAttribute="leading" secondItem="xI5-Th-L6W" secondAttribute="leadingMargin" constant="6" id="lTJ-VX-Kz2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RUH-5Q-rHs" secondAttribute="trailing" constant="7" id="o3y-Rg-5cf"/>
                         </constraints>
@@ -342,7 +356,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1qk-cY-QoA" id="mh7-ey-SZz">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

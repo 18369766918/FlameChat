@@ -107,11 +107,17 @@ class DialViewController: UIViewController {
     @IBAction func call(_ sender: Any) {
         let targetPhone = self.CallField!.text;
         yourPhoneNo = targetPhone!;
-       
-        firebase?.child("users").child(yourPhoneNo).updateChildValues(["status": "beingCalled", "caller": myPhoneNo]);
-        firebase?.child("users").child(myPhoneNo).updateChildValues(["status": "calling"])
         
-        self.statusField.text! = "Calling..."
+        if(yourPhoneNo != myPhoneNo){
+            firebase?.child("users").child(yourPhoneNo).updateChildValues(["status": "beingCalled", "caller": myPhoneNo]);
+            firebase?.child("users").child(myPhoneNo).updateChildValues(["status": "calling"])
+            
+            self.statusField.text! = "Calling..."
+        }
+        else{
+            self.statusField.text! = "Can't call yourself."
+        }
+       
     }
     
 

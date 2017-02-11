@@ -28,8 +28,13 @@ class ChatView: UIViewController {
             // Get user phone no value
             let value = snapshot.value as? NSDictionary
             let msg = value?["message"] as? String ?? ""
+            let status = value?["status"] as? String ?? ""
             
-            self.otherTextFeild.text! = msg;
+            self.otherTextFeild.text! = ":" + msg;
+            
+            if(status == "online"){
+                self.otherTextFeild.text! = "Other person ended chat.";
+            }
         })
     }
     
@@ -42,7 +47,7 @@ class ChatView: UIViewController {
             let value = snapshot.value as? NSDictionary
             let yourName = value?["name"] as? String ?? ""
             
-            self.otherEmailField.text! = yourName;
+            self.otherEmailField.text! = "Chatting with: " + yourName;
         })
         
         /** refresh */
@@ -62,12 +67,29 @@ class ChatView: UIViewController {
         
         firebase?.child("users").child(yourPhoneNo).updateChildValues(["message": toBeSent]); // send message
         
-        self.myTextField.text! = toBeSent;
+        self.myTextField.text! = "me: " + toBeSent;
         
         self.composetField.text! = "" // clean composet field
         
     }
     
+    /** end call */
+    @IBAction func end(_ sender: Any) {
+        firebase?.child("users").child(yourPhoneNo).updateChildValues(["message": ""]);
+        firebase?.child("users").child(myPhoneNo).updateChildValues(["message": ""]);
+        
+        firebase?.child("users").child(yourPhoneNo).updateChildValues(["status": "online"]);
+        firebase?.child("users").child(myPhoneNo).updateChildValues(["status": "online"]);
+        
+        firebase?.child("users").child(yourPhoneNo).updateChildValues(["caller": ""]);
+        firebase?.child("users").child(myPhoneNo).updateChildValues(["caller": ""]);
+
+        yourPhoneNo = "";
+        
+        /** present dial view */
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "dial") as! DialViewController
+        self.present(popOverVC, animated: true, completion: nil)
+    }
     
     
 }
