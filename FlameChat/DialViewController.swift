@@ -9,9 +9,6 @@
 import UIKit
 import Firebase
 
-var myPhoneNo = "";
-var yourPhoneNo = "";
-
 class DialViewController: UIViewController {
 
     //点击空白区域隐藏键盘
@@ -34,13 +31,12 @@ class DialViewController: UIViewController {
  
     func manuallyRef(phone: String){
         
-            firebase?.child("id").child(phone).observeSingleEvent(of: .value, with: { (snapshot) in
+            firebase?.child("users").child(phone).observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get call information
                 let value = snapshot.value as? NSDictionary
-                let call = value?["call"] as? String ?? ""
-                let answer = value?["answer"] as? String ?? ""
+                let status = value?["status"] as? String ?? ""
                 
-                if (call == "true"){
+                if (status == "beingCalled"){
                     
                     /** show the beCalling view */
                     let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "beCalling") as! BeCallingView
@@ -51,16 +47,17 @@ class DialViewController: UIViewController {
 
                 }
                 
-                if (answer == "NO"){
+                if (status == "canceled"){
                     self.statusField.text! = "No answer."
-                    firebase!.child("id").child(myPhoneNo).updateChildValues(["answer": ""]);
+                    firebase!.child("users").child(myPhoneNo).updateChildValues(["status": "online"]);
                 }
                 
-                if (answer == ""){
-                    self.statusField.text! = ""
+                if (status == "calling"){
+                    self.statusField.text! = "Calling..."
                 }
                 
-                if (answer == "YES"){
+                if (status == "chatting"){
+                    
                     /** present dial view */
                     let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chat") as! ChatView
                     
@@ -75,19 +72,7 @@ class DialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let userID = FIRAuth.auth()?.currentUser?.uid
-        firebase?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user phone no value
-            let value = snapshot.value as? NSDictionary
-            let phone = value?["phone"] as? String ?? ""
-            
-            myPhoneNo = phone;
-            
-            self.phoneNo.text = "Your flameID: " + phone; // display phone No.
-           
-        }) { (error) in
-            print(error.localizedDescription)
-        }
+        self.phoneNo.text = "Your flameID: " + myPhoneNo; // display phone No.
         
         /** waitnig for calling! */
         var timer: Timer;
@@ -102,16 +87,11 @@ class DialViewController: UIViewController {
     
     @IBAction func logout(_ sender: Any) {
         /** change user status (online) to: false */
-        let userID = FIRAuth.auth()?.currentUser?.uid
-        firebase?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user phone no value
-            let value = snapshot.value as? NSDictionary
-            let phone = value?["phone"] as? String ?? ""
-            
-            firebase!.child("id").child(phone).updateChildValues(["online": "false"]);
-            
-        })
+        firebase!.child("users").child(myPhoneNo).updateChildValues(["status": "offline"]);
 
+        myPhoneNo = "";
+        yourPhoneNo = "";
+        
         logout_newview();
         
     }
@@ -127,16 +107,9 @@ class DialViewController: UIViewController {
     @IBAction func call(_ sender: Any) {
         let targetPhone = self.CallField!.text;
         yourPhoneNo = targetPhone!;
-        
-        let userID = FIRAuth.auth()?.currentUser?.uid
-        firebase?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user phone no value
-            let value = snapshot.value as? NSDictionary
-            let phone = value?["phone"] as? String ?? ""
-            
-            
-            firebase?.child("id").child(targetPhone!).updateChildValues(["call": "true", "caller": phone]);
-        })
+       
+        firebase?.child("users").child(yourPhoneNo).updateChildValues(["status": "beingCalled", "caller": myPhoneNo]);
+        firebase?.child("users").child(myPhoneNo).updateChildValues(["status": "calling"])
         
         self.statusField.text! = "Calling..."
     }

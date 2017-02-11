@@ -24,7 +24,7 @@ class ChatView: UIViewController {
     }
     
     internal func getMsg(){
-        firebase?.child("id").child(myPhoneNo).observeSingleEvent(of: .value, with: { (snapshot) in
+        firebase?.child("users").child(myPhoneNo).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user phone no value
             let value = snapshot.value as? NSDictionary
             let msg = value?["message"] as? String ?? ""
@@ -37,12 +37,12 @@ class ChatView: UIViewController {
         super.viewDidLoad()
         
         /** display other's email */
-        firebase?.child("id").child(yourPhoneNo).observeSingleEvent(of: .value, with: { (snapshot) in
+        firebase?.child("users").child(yourPhoneNo).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user phone no value
             let value = snapshot.value as? NSDictionary
-            let yourEmail = value?["email"] as? String ?? ""
+            let yourName = value?["name"] as? String ?? ""
             
-            self.otherEmailField.text! = yourEmail;
+            self.otherEmailField.text! = yourName;
         })
         
         /** refresh */
@@ -60,7 +60,7 @@ class ChatView: UIViewController {
         
         let toBeSent = self.composetField.text!;
         
-        firebase?.child("id").child(yourPhoneNo).updateChildValues(["message": toBeSent]); // send message
+        firebase?.child("users").child(yourPhoneNo).updateChildValues(["message": toBeSent]); // send message
         
         self.myTextField.text! = toBeSent;
         

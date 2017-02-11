@@ -9,12 +9,16 @@
 import UIKit
 import Firebase
 
+var myPhoneNo = "";
+var yourPhoneNo = "";
+
+
 class Login: UIViewController {
 
     
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var emailField: UITextField! // phone number
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var phoneField: UITextField!
+    @IBOutlet weak var phoneField: UITextField! // name field
 
     //点击空白区域隐藏键盘
     // touch blank area to hide keyboard
@@ -35,7 +39,7 @@ class Login: UIViewController {
         
         if let user = FIRAuth.auth()?.currentUser{
             
-            firebase!.child("users/\(user.uid)/userID").setValue(user.uid)
+            //firebase!.child("users/\(user.uid)/userID").setValue(user.uid)
             
         }else{
             FIRAuth.auth()?.signInAnonymously(completion: { (user, error) in
@@ -48,7 +52,7 @@ class Login: UIViewController {
                     
                     
                 }else{
-                    firebase!.child("users").child(user!.uid).setValue(["userID" : user!.uid])
+                   // firebase!.child("users").child(user!.uid).setValue(["userID" : user!.uid])
                 }
             })
          
@@ -59,22 +63,29 @@ class Login: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     /** create account botton */
     @IBAction func createAction(_ sender: AnyObject) {
         
-        guard let email = self.emailField.text else {
+        guard let phone = self.emailField.text else {
             return
         }
         guard let password = self.passwordField.text else{
             return
         }
-        guard let phone = self.phoneField.text else{
+        guard let name = self.phoneField.text else{
             return
         }
-        
+        if(phone != "" && password != ""){
+            firebase?.child("users").child(phone).setValue(["status":"offline", "passwd": password, "name": name])
+            /** show sign up successful message */
+            let alert = UIAlertController(title: "Thank you!", message: "Welcome, our new member!", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "Start chat now!", style: .cancel, handler: nil)
+            alert.addAction(defaultAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+        /*
         if email != "" && password != "" {
             let credential = FIREmailPasswordAuthProvider.credential(withEmail: email, password: password)
             
@@ -104,13 +115,14 @@ class Login: UIViewController {
             alert.addAction(defaultAction)
             self.present(alert, animated: true, completion: nil)
 
-        }
+        }*/
     }
     
     
     /** 
      *   to load a new view controller
      */
+    /*
     func logged(){
         /** show the dial viewcontroller */
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "dial") as! DialViewController
@@ -119,7 +131,7 @@ class Login: UIViewController {
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
 
-    }
+    }*/
     
     func loggedTest(){
         /** show the dial navigation controller */
@@ -138,8 +150,33 @@ class Login: UIViewController {
     
     /** log in button */
     @IBAction func login(_ sender: AnyObject) {
-        //var logged = false;
+        var EMAIL = "a@aa.com";
+        var PASS = "123456";
+        FIRAuth.auth()?.signIn(withEmail: EMAIL, password: PASS) // login as internal account!!!
         
+        var inputPhone = self.emailField.text!;
+        var inputPasswd = self.passwordField.text!;
+        if(inputPhone != "" && inputPasswd != ""){
+            firebase?.child("users").child(inputPhone).observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as? NSDictionary
+                let passwd = value?["passwd"] as? String ?? ""
+                
+                if(inputPasswd == passwd){
+                    myPhoneNo = inputPhone;
+                    firebase?.child("users").child(myPhoneNo).updateChildValues(["status": "online"])
+                    /** show login successful alert box */
+                    let successAlert = UIAlertController(title: "Welcome back friend!", message: "", preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "Continue", style: .cancel, handler: nil)
+                    successAlert.addAction(defaultAction)
+                    self.present(successAlert, animated: true, completion: nil)
+                    
+                    /** show the dial viewcontroller */
+                    self.loggedTest()
+                }
+                
+            })
+        }
+        /*
         FIRAuth.auth()?.signIn(withEmail: self.emailField.text!, password: self.passwordField.text!)
         {
             (user, error) in
@@ -176,19 +213,12 @@ class Login: UIViewController {
             else{
                 print("Log in ERROR")
             }
-        }
+        }*/
     
     }
     
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
+    
 }
