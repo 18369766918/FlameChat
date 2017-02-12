@@ -13,6 +13,7 @@
 		8D37D7D21E4F61D40047EF0E /* 120.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D37D7D01E4F61D40047EF0E /* 120.png */; };
 		8D37D7D41E4F622A0047EF0E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D37D7D31E4F62290047EF0E /* icon.png */; };
 		8D37D7D61E4F64A30047EF0E /* grass.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8D37D7D51E4F64A30047EF0E /* grass.jpg */; };
+		8D4A1F6B1E50A7F7009667AC /* Compose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4A1F6A1E50A7F7009667AC /* Compose.swift */; };
 		8D7F58F01E459011006D1A19 /* DialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7F58EF1E459011006D1A19 /* DialViewController.swift */; };
 		8D80D7661E4E3F7B002FC5F2 /* BeCallingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D80D7651E4E3F7B002FC5F2 /* BeCallingView.swift */; };
 		8D80D7681E4E77B6002FC5F2 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D80D7671E4E77B6002FC5F2 /* ChatView.swift */; };
@@ -59,6 +60,7 @@
 		8D37D7D01E4F61D40047EF0E /* 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120.png; sourceTree = "<group>"; };
 		8D37D7D31E4F62290047EF0E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		8D37D7D51E4F64A30047EF0E /* grass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grass.jpg; sourceTree = "<group>"; };
+		8D4A1F6A1E50A7F7009667AC /* Compose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compose.swift; sourceTree = "<group>"; };
 		8D7F58EF1E459011006D1A19 /* DialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialViewController.swift; sourceTree = "<group>"; };
 		8D80D7651E4E3F7B002FC5F2 /* BeCallingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeCallingView.swift; sourceTree = "<group>"; };
 		8D80D7671E4E77B6002FC5F2 /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
@@ -173,12 +175,13 @@
 				8D80D7651E4E3F7B002FC5F2 /* BeCallingView.swift */,
 				8D80D7671E4E77B6002FC5F2 /* ChatView.swift */,
 				8DD206441E404EC30058B61E /* mailBox.swift */,
-				8DE646B71E41900F006DD195 /* ComposeViewController.swift */,
+				8D4A1F6A1E50A7F7009667AC /* Compose.swift */,
 				8DD206461E404EC30058B61E /* Main.storyboard */,
 				8DD206491E404EC30058B61E /* Assets.xcassets */,
 				8DD2064B1E404EC30058B61E /* LaunchScreen.storyboard */,
 				8DD2064E1E404EC30058B61E /* Info.plist */,
 				8DE646A91E4182C5006DD195 /* GoogleService-Info.plist */,
+				8DE646B71E41900F006DD195 /* ComposeViewController.swift */,
 			);
 			path = FlameChat;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				8DD206431E404EC30058B61E /* AppDelegate.swift in Sources */,
 				8D80D7681E4E77B6002FC5F2 /* ChatView.swift in Sources */,
 				8DE646BA1E4196E0006DD195 /* Login.swift in Sources */,
+				8D4A1F6B1E50A7F7009667AC /* Compose.swift in Sources */,
 				8D7F58F01E459011006D1A19 /* DialViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

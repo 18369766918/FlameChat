@@ -78,7 +78,7 @@ class Login: UIViewController {
             return
         }
         if(phone != "" && password != ""){
-            firebase?.child("users").child(phone).setValue(["status":"offline", "passwd": password, "name": name])
+            firebase?.child("users").child(phone).setValue(["status":"offline", "passwd": password, "name": name, "mailNum": "0"])
             /** show sign up successful message */
             let alert = UIAlertController(title: "Thank you!", message: "Welcome, our new member!", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "Start chat now!", style: .cancel, handler: nil)
