@@ -1,0 +1,89 @@
+{
+  "users" : {
+    "10086" : {
+      "caller" : "",
+      "mailBox" : {
+        "1" : {
+          "content" : "test",
+          "sender" : "12306",
+          "time" : "2017"
+        },
+        "2" : {
+          "content" : "lksjdfklaj",
+          "sender" : "12306",
+          "time" : "2017"
+        },
+        "mailNum" : "2"
+      },
+      "message" : "",
+      "name" : "ChinaMobileCo",
+      "passwd" : "123456",
+      "status" : "offline"
+    },
+    "12306" : {
+      "caller" : "",
+      "mailBox" : {
+        "1" : {
+          "content" : "test mail",
+          "sender" : "10086",
+          "time" : "2017"
+        },
+        "2" : {
+          "content" : "1234",
+          "sender" : "10086",
+          "time" : "2017"
+        },
+        "mailNum" : "2"
+      },
+      "message" : "",
+      "name" : "ChinaRailway",
+      "passwd" : "123456",
+      "status" : "online"
+    },
+    "Dominic" : {
+      "caller" : "Matthew",
+      "mailBox" : {
+        "1" : {
+          "content" : "\uD83D\uDE04\uD83D\uDE04",
+          "sender" : "Matthew",
+          "time" : "2017"
+        },
+        "mailNum" : "1"
+      },
+      "message" : "",
+      "name" : "dom666",
+      "passwd" : "123456",
+      "status" : "offline"
+    },
+    "Edwin" : {
+      "caller" : "Matthew",
+      "mailBox" : {
+        "mailNum" : "0"
+      },
+      "message" : "",
+      "name" : "Edwin",
+      "passwd" : "88888888",
+      "status" : "offline"
+    },
+    "Matthew" : {
+      "caller" : "",
+      "mailBox" : {
+        "mailNum" : "0"
+      },
+      "message" : "",
+      "name" : "MatthewYan",
+      "passwd" : "336699",
+      "status" : "offline"
+    },
+    "wjyxiaojingyu" : {
+      "caller" : "",
+      "mailBox" : {
+        "mailNo" : "0"
+      },
+      "message" : "",
+      "name" : "April ",
+      "passwd" : "19960306wjy@",
+      "status" : "offline"
+    }
+  }
+}

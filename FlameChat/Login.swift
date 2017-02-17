@@ -86,53 +86,9 @@ class Login: UIViewController {
             alert.addAction(defaultAction)
             self.present(alert, animated: true, completion: nil)
         }
-        /*
-        if email != "" && password != "" {
-            let credential = FIREmailPasswordAuthProvider.credential(withEmail: email, password: password)
-            
-            FIRAuth.auth()?.currentUser?.link(with: credential, completion: {(user,error) in
-                
-                if error != nil{
-                    
-                    let alert = UIAlertController(title: "Oops!", message: error?.localizedDescription, preferredStyle: .alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alert.addAction(defaultAction)
-                    self.present(alert, animated: true, completion: nil)
-
-                }else{
-                    firebase!.child("users").child(user!.uid).setValue(["passwd":password, "email": email, "phone": phone, "userID": user!.uid])
-                    firebase!.child("id").child(phone).setValue(["passwd":password, "email": email, "online": false])
-                    /** show sign up successful message */
-                    let alert = UIAlertController(title: "Thank you!", message: "Welcome, our new member!", preferredStyle: .alert)
-                    let defaultAction = UIAlertAction(title: "Start chat now!", style: .cancel, handler: nil)
-                    alert.addAction(defaultAction)
-                    self.present(alert, animated: true, completion: nil)
-                }
-            })
-        }else{
-            
-            let alert = UIAlertController(title: "Oops!", message: "Please enter an email and password.", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alert.addAction(defaultAction)
-            self.present(alert, animated: true, completion: nil)
-
-        }*/
     }
     
-    
-    /** 
-     *   to load a new view controller
-     */
-    /*
-    func logged(){
-        /** show the dial viewcontroller */
-        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "dial") as! DialViewController
-        self.addChildViewController(popOverVC)
-        popOverVC.view.frame = self.view.frame
-        self.view.addSubview(popOverVC.view)
-        popOverVC.didMove(toParentViewController: self)
-
-    }*/
+  
     
     func loggedTest(){
         /** show the dial navigation controller */
@@ -140,6 +96,20 @@ class Login: UIViewController {
         
         let navController = UINavigationController(rootViewController: popOverVC)
 
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        //popOverVC.didMove(toParentViewController: self)
+        self.present(navController, animated: true, completion: nil)
+        
+    }
+    
+    func authLogin(){
+        /** show the dial navigation controller */
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "auth") as! Auth
+        
+        let navController = UINavigationController(rootViewController: popOverVC)
+        
         self.addChildViewController(popOverVC)
         popOverVC.view.frame = self.view.frame
         self.view.addSubview(popOverVC.view)
@@ -165,6 +135,19 @@ class Login: UIViewController {
                 if(inputPasswd == passwd){
                     myPhoneNo = inputPhone;
                     firebase?.child("users").child(myPhoneNo).updateChildValues(["status": "online"])
+                    
+                    if inputPhone == "Authorizer"{
+                        /** show login successful alert box */
+                        let successAlert = UIAlertController(title: "Welcome back authorizer!", message: "", preferredStyle: .alert)
+                        let defaultAction = UIAlertAction(title: "Continue", style: .cancel, handler: nil)
+                        successAlert.addAction(defaultAction)
+                        self.present(successAlert, animated: true, completion: nil)
+                        
+                        /** show the dial viewcontroller */
+                        self.authLogin()
+                    }
+                    
+                    else{
                     /** show login successful alert box */
                     let successAlert = UIAlertController(title: "Welcome back friend!", message: "", preferredStyle: .alert)
                     let defaultAction = UIAlertAction(title: "Continue", style: .cancel, handler: nil)
@@ -173,49 +156,12 @@ class Login: UIViewController {
                     
                     /** show the dial viewcontroller */
                     self.loggedTest()
+                    }
                 }
                 
             })
         }
-        /*
-        FIRAuth.auth()?.signIn(withEmail: self.emailField.text!, password: self.passwordField.text!)
-        {
-            (user, error) in
-            if error == nil{
-                /** Log in Successfully do something here!! */
-                print("\n\n\nLog in successfully! User: " + self.emailField.text! + "\n\n\n");
-                
-                var current = FIRAuth.auth()?.currentUser // current user reference
-                print("\n\n\n" + (current?.email)! + "\n\n\n");
-                print( (current?.uid)! + "\n\n\n");
-                
-                
-                /** change user status (online) to: true */
-                let userID = FIRAuth.auth()?.currentUser?.uid
-                firebase?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-                    // Get user phone no value
-                    let value = snapshot.value as? NSDictionary
-                    let phone = value?["phone"] as? String ?? ""
-                    
-                    firebase!.child("id").child(phone).updateChildValues(["online": "true", "call": "false", "answer": ""]);
-                    
-                })
-                
-                
-                /** show login successful alert box */
-                let successAlert = UIAlertController(title: "Welcome back friend!", message: "", preferredStyle: .alert)
-                let defaultAction = UIAlertAction(title: "Continue", style: .cancel, handler: nil)
-                successAlert.addAction(defaultAction)
-                self.present(successAlert, animated: true, completion: nil)
-
-                /** show the dial viewcontroller */
-                self.loggedTest()
-            }
-            else{
-                print("Log in ERROR")
-            }
-        }*/
-    
+        
     }
     
     

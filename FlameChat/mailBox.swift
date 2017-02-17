@@ -13,22 +13,20 @@ class mailBox: UIViewController{
     //@IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mailNumField: UILabel!
     
-    @IBOutlet weak var retrieveNo: UITextField!
     
     @IBOutlet weak var mailNo: UILabel!
     @IBOutlet weak var sender: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var contents: UILabel!
     
+    var maxNum:Int? = 0;
+    var currentNo:Int? = 0;
     
     //var postData = ["Message"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        //tableView.delegate = self
-        //tableView.dataSource = self
         
         firebase?.child("users").child(myPhoneNo).child("mailBox").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
@@ -38,41 +36,16 @@ class mailBox: UIViewController{
             var num:Int? = (Int)(mailNum);
             
             self.mailNumField.text! = "You have " + mailNum + " mails."
-            /*
-            if(num == 0){
-                self.contents.text! = ""
-                self.time.text! = ""
-                self.sender.text! = ""
-                self.mailNo.text! = ""
-            }
-            else{
-                
-                let box = snapshot.children as? NSEnumerator// test
-
-                //print(box?.allObjects)
-                let boxValue = box?.allObjects as? NSDictionary
-                
-                
-                print("")
-                print(boxValue)
-                
-                var cont = boxValue?["content"] as? String ?? ""
-                var tm = boxValue?["time"] as? String ?? ""
-                var sd = boxValue?["sender"] as? String ?? ""
- 
-                
-                
-                self.contents.text! = cont
-                self.time.text! = tm
-                self.sender.text! = sd
-                self.mailNo.text! = "Newest message: " + mailNum;
- 
-            }
             
-            */
+            self.currentNo! = num! + 1;
+            self.maxNum! = num!;
+            
+            print("\n\nTTTTTTTTT")
+            print(mailNum);
         })
 
-    
+        print("\n\nTTTTTTTTT")
+        print(self.currentNo);
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,23 +54,107 @@ class mailBox: UIViewController{
     }
 
     @IBAction func getMail(_ sender: Any) {
-        var retrieve = self.retrieveNo.text!;
         
-        firebase?.child("users").child(myPhoneNo).child("mailBox").child(retrieve).observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? NSDictionary
+        self.currentNo = self.currentNo! - 1;
+        if self.currentNo! <= maxNum! {
             
-            var cont = value?["content"] as? String ?? ""
-            var tm = value?["time"] as? String ?? ""
-            var sd = value?["sender"] as? String ?? ""
+            if self.currentNo! == 0 {
+                self.currentNo = 1;
+            }
             
-            self.contents.text! = cont
-            self.time.text! = tm
-            self.sender.text! = sd
-            self.mailNo.text! = retrieve;
+            var get:String = "\(self.currentNo!)";
+       
+            firebase?.child("users").child(myPhoneNo).child("mailBox").child(get).observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as? NSDictionary
+                
+                var cont = value?["content"] as? String ?? ""
+                var tm = value?["time"] as? String ?? ""
+                var sd = value?["sender"] as? String ?? ""
+                
+                self.contents.text! = "Contents: "+cont
+                self.time.text! = "Time: "+tm
+                self.sender.text! = "Sender: "+sd
+                self.mailNo.text! = "No: "+get;
+                
+            })
             
-        })
-    }
+        }
+    }// end of get mail
     
+    @IBAction func previous(_ sender: Any) {
+        
+        
+        self.currentNo = self.currentNo! + 1;
+        
+        if self.currentNo! > maxNum! {
+            self.currentNo = maxNum!;
+        }
+        
+        if self.currentNo! <= maxNum! {
+            
+            var get:String = "\(self.currentNo!)";
+            
+            firebase?.child("users").child(myPhoneNo).child("mailBox").child(get).observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as? NSDictionary
+                
+                var cont = value?["content"] as? String ?? ""
+                var tm = value?["time"] as? String ?? ""
+                var sd = value?["sender"] as? String ?? ""
+                
+                self.contents.text! = "Contents: "+cont
+                self.time.text! = "Time: "+tm
+                self.sender.text! = "Sender: "+sd
+                self.mailNo.text! = "No: "+get;
+                
+            })
+            
+        }
+
+    }// end of previous email
+    
+    
+    @IBAction func deleteNew(_ sender: Any) {
+        
+        if self.maxNum! > 0 {
+            self.maxNum = self.maxNum! - 1;
+            
+            var deleteNum:String = "\(self.maxNum!)";
+            
+            firebase!.child("users").child(myPhoneNo).child("mailBox").updateChildValues(["mailNum": deleteNum]);
+            
+        }
+            
+        
+        
+        self.currentNo = self.maxNum!;
+        
+        if self.currentNo! > maxNum! {
+            self.currentNo = maxNum!;
+        }
+        
+        if self.currentNo! <= maxNum! {
+            
+            var get:String = "\(self.currentNo!)";
+            
+            firebase?.child("users").child(myPhoneNo).child("mailBox").child(get).observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as? NSDictionary
+                
+                var cont = value?["content"] as? String ?? ""
+                var tm = value?["time"] as? String ?? ""
+                var sd = value?["sender"] as? String ?? ""
+                
+                self.contents.text! = "Contents: "+cont
+                self.time.text! = "Time: "+tm
+                self.sender.text! = "Sender: "+sd
+                self.mailNo.text! = "No: "+get;
+                
+                self.mailNumField.text! = "You have " + get + " mails";
+            })
+            
+        }
+
+        
+    }// end of delete
     
 }
 
