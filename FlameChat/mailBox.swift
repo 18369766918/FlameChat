@@ -8,6 +8,8 @@
 
 import UIKit
 
+var myAUTH = "";
+
 class mailBox: UIViewController{
     
     //@IBOutlet weak var tableView: UITableView!
@@ -28,20 +30,45 @@ class mailBox: UIViewController{
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
         firebase?.child("users").child(myPhoneNo).child("mailBox").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             
             var mailNum = value?["mailNum"] as? String ?? ""
+            var newestMail = value?[mailNum] as? String ?? ""
+            var myauth = value?["AUTH"] as? String ?? ""
+            myAUTH = myauth;
             
-            var num:Int? = (Int)(mailNum);
+            if myAUTH == authno {
+                var num:Int? = (Int)(mailNum);
+                
+                self.mailNumField.text! = "You have " + mailNum + " mails."
+                
+                self.currentNo! = num! + 1;
+                self.maxNum! = num!;
+                
+                print("\n\nTTTTTTTTT")
+                print(mailNum);
+            }
+            else{
+                var num:Int? = (Int)(mailNum);
+                num = num! + 1;
+                mailNum = "\(num!)";
+                
+                firebase!.child("users").child(myPhoneNo).child("mailBox").updateChildValues(["mailNum": mailNum]);
+                firebase!.child("users").child(myPhoneNo).child("mailBox").updateChildValues(["AUTH": authno]);
+                firebase!.child("users").child(myPhoneNo).child("mailBox").child(mailNum).setValue(["time": "NEWEST", "content": broadcast, "sender": "Authorizer"])
+                
+                
+                self.mailNumField.text! = "You have " + mailNum + " mails."
+                
+                self.currentNo! = num! + 1;
+                self.maxNum! = num!;
+                
+                print("\n\nTTTTTTTTT")
+                print(mailNum);
+            }
             
-            self.mailNumField.text! = "You have " + mailNum + " mails."
-            
-            self.currentNo! = num! + 1;
-            self.maxNum! = num!;
-            
-            print("\n\nTTTTTTTTT")
-            print(mailNum);
         })
 
         print("\n\nTTTTTTTTT")

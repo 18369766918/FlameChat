@@ -8,10 +8,27 @@
 
 import UIKit
 
+var AUTH = "";
+
 class Auth: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /** get version NO: AUTH */
+        firebase?.child("users").child(myPhoneNo).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            var tmp = value?["AUTH"] as? String ?? ""
+            
+            AUTH = tmp;
+            var auth:Int? = (Int)(AUTH);
+            //auth = auth! + 1;
+            AUTH = "\(auth!)";
+            
+            print("TTTTTTT\n")
+            print(AUTH)
+            
+        })
 
         // Do any additional setup after loading the view.
     }
@@ -41,5 +58,22 @@ class Auth: UIViewController {
         
     }
 
+    
+    @IBOutlet weak var broadcastField: UITextField!
+    
+    @IBAction func broadcast(_ sender: Any) {
+        var content = self.broadcastField.text!;
+        
+        var auth:Int? = (Int)(AUTH);
+        auth = auth! + 1;
+        AUTH = "\(auth!)";
+        
+        print("TTTTTTT\n")
+        print(AUTH)
+
+        
+        firebase!.child("users").child(myPhoneNo).updateChildValues(["broadcast": content, "AUTH": AUTH]);
+    }
+    
     
 }

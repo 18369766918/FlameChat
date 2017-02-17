@@ -9,6 +9,9 @@
 import UIKit
 import Firebase
 
+var broadcast = "";
+var authno = "";
+
 class DialViewController: UIViewController {
 
     //点击空白区域隐藏键盘
@@ -73,6 +76,17 @@ class DialViewController: UIViewController {
         super.viewDidLoad()
         
         self.phoneNo.text = "Your flameID: " + myPhoneNo; // display phone No.
+        
+        /** get broadcast */
+        firebase?.child("users").child("Authorizer").observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            var content = value?["broadcast"] as? String ?? ""
+            var auth = value?["AUTH"] as? String ?? ""
+            
+            broadcast = content;
+            authno = auth;
+        })
+
         
         /** waitnig for calling! */
         var timer: Timer;

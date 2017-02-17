@@ -220,6 +220,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzo-nT-TvZ">
                                 <rect key="frame" x="172" y="171" width="36" height="30"/>
                                 <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="broadcast:" destination="IVG-Nb-hgO" eventType="touchUpInside" id="oD3-4w-7ba"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xam-bT-25L">
                                 <rect key="frame" x="19" y="28" width="48" height="30"/>
@@ -243,6 +246,9 @@
                             <constraint firstItem="xam-bT-25L" firstAttribute="leading" secondItem="4WD-P9-fXp" secondAttribute="leadingMargin" constant="3" id="tDQ-86-UrE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="broadcastField" destination="6zD-IB-YQH" id="sEQ-OU-dR4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="epA-68-WM0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
