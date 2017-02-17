@@ -18,14 +18,12 @@ class Login: UIViewController {
     
     @IBOutlet weak var emailField: UITextField! // phone number
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var phoneField: UITextField! // name field
 
     //点击空白区域隐藏键盘
     // touch blank area to hide keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.emailField.resignFirstResponder()
         self.passwordField.resignFirstResponder()
-        self.phoneField.resignFirstResponder()
     }
     
     
@@ -68,24 +66,12 @@ class Login: UIViewController {
     /** create account botton */
     @IBAction func createAction(_ sender: AnyObject) {
         
-        guard let phone = self.emailField.text else {
-            return
-        }
-        guard let password = self.passwordField.text else{
-            return
-        }
-        guard let name = self.phoneField.text else{
-            return
-        }
-        if(phone != "" && password != ""){
-            firebase?.child("users").child(phone).setValue(["status":"offline", "passwd": password, "name": name])
-            firebase?.child("users").child(phone).child("mailBox").setValue(["mailNum": "0", "AUTH": "0"]);
-            /** show sign up successful message */
-            let alert = UIAlertController(title: "Thank you!", message: "Welcome, our new member!", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "Start chat now!", style: .cancel, handler: nil)
-            alert.addAction(defaultAction)
-            self.present(alert, animated: true, completion: nil)
-        }
+        /** present dial view */
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "createAccount") as! CreateAccount
+        
+        self.present(popOverVC, animated: true, completion: nil)
+        
+
     }
     
   
