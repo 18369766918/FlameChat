@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>329881473015-o4k1fssqircl8n5nd2kh8i8vfb8ef634.apps.googleusercontent.com</string>
+	<string>329881473015-5i93kuae0fqnugp8f0jp97d6m0uo0m46.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.329881473015-o4k1fssqircl8n5nd2kh8i8vfb8ef634</string>
+	<string>com.googleusercontent.apps.329881473015-5i93kuae0fqnugp8f0jp97d6m0uo0m46</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDa_d-graQ02yzfP-tr_Hya8iE81rchUh8</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>COSC3506.FlameChat</string>
+	<string>COSC3506.FlameChatAlpha</string>
 	<key>PROJECT_ID</key>
 	<string>voicemail-4869c</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:329881473015:ios:a3b7846c4e4294d8</string>
+	<string>1:329881473015:ios:3534ffc0d9c868c2</string>
 	<key>DATABASE_URL</key>
 	<string>https://voicemail-4869c.firebaseio.com</string>
 </dict>

@@ -25,9 +25,9 @@
 		8DD2064D1E404EC30058B61E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DD2064B1E404EC30058B61E /* LaunchScreen.storyboard */; };
 		8DD206581E404EC40058B61E /* FlameChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD206571E404EC40058B61E /* FlameChatTests.swift */; };
 		8DD206631E404EC40058B61E /* FlameChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD206621E404EC40058B61E /* FlameChatUITests.swift */; };
-		8DE646AA1E4182C5006DD195 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DE646A91E4182C5006DD195 /* GoogleService-Info.plist */; };
 		8DE646B81E41900F006DD195 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE646B71E41900F006DD195 /* ComposeViewController.swift */; };
 		8DE646BA1E4196E0006DD195 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE646B91E4196E0006DD195 /* Login.swift */; };
+		8DFA13461E6A3376006EC841 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DFA13451E6A3376006EC841 /* GoogleService-Info.plist */; };
 		8DFA515B1E5770E800603319 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA515A1E5770E800603319 /* Auth.swift */; };
 		8DFA515D1E5786C600603319 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA515C1E5786C600603319 /* CreateAccount.swift */; };
 		A322041D489D2D6BEF507356 /* Pods_FlameChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B40E41B20D331E9FDB26F33 /* Pods_FlameChatUITests.framework */; };
@@ -81,9 +81,9 @@
 		8DD2065E1E404EC40058B61E /* FlameChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlameChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD206621E404EC40058B61E /* FlameChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlameChatUITests.swift; sourceTree = "<group>"; };
 		8DD206641E404EC40058B61E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8DE646A91E4182C5006DD195 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8DE646B71E41900F006DD195 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		8DE646B91E4196E0006DD195 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		8DFA13451E6A3376006EC841 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8DFA515A1E5770E800603319 /* Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		8DFA515C1E5786C600603319 /* CreateAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
 		99D509E6B23C33D94A8D11B8 /* Pods-FlameChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlameChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlameChat/Pods-FlameChat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 				8DD206491E404EC30058B61E /* Assets.xcassets */,
 				8DD2064B1E404EC30058B61E /* LaunchScreen.storyboard */,
 				8DD2064E1E404EC30058B61E /* Info.plist */,
-				8DE646A91E4182C5006DD195 /* GoogleService-Info.plist */,
+				8DFA13451E6A3376006EC841 /* GoogleService-Info.plist */,
 				8DE646B71E41900F006DD195 /* ComposeViewController.swift */,
 			);
 			path = FlameChat;
@@ -348,9 +348,9 @@
 			files = (
 				8DD2064D1E404EC30058B61E /* LaunchScreen.storyboard in Resources */,
 				8D37D7CC1E4F61010047EF0E /* logo.png in Resources */,
+				8DFA13461E6A3376006EC841 /* GoogleService-Info.plist in Resources */,
 				8D37D7D11E4F61D40047EF0E /* 180.png in Resources */,
 				8D37D7D61E4F64A30047EF0E /* grass.jpg in Resources */,
-				8DE646AA1E4182C5006DD195 /* GoogleService-Info.plist in Resources */,
 				8D37D7D41E4F622A0047EF0E /* icon.png in Resources */,
 				8D37D7D21E4F61D40047EF0E /* 120.png in Resources */,
 				8DD2064A1E404EC30058B61E /* Assets.xcassets in Resources */,
@@ -678,6 +678,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FlameChat/FlameChat.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6K54J8U3S9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -685,7 +686,7 @@
 				);
 				INFOPLIST_FILE = FlameChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = COSC3506.FlameChat;
+				PRODUCT_BUNDLE_IDENTIFIER = COSC3506.FlameChatAlpha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -697,6 +698,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FlameChat/FlameChat.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6K54J8U3S9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -704,7 +706,7 @@
 				);
 				INFOPLIST_FILE = FlameChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = COSC3506.FlameChat;
+				PRODUCT_BUNDLE_IDENTIFIER = COSC3506.FlameChatAlpha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
