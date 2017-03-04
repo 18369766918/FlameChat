@@ -49,7 +49,7 @@ class CreateAccount: UIViewController {
             return
         }
         if(phone != "" && password != ""){
-            firebase?.child("users").child(phone).setValue(["status":"offline", "passwd": password, "name": name, "email": email])
+            firebase?.child("users").child(phone).setValue(["status":"offline", "passwd": password, "name": name, "email": email, "welcome": "Please leave me a message."])
             firebase?.child("users").child(phone).child("mailBox").setValue(["mailNum": "0", "AUTH": "0"]);
            
             /** show sign up successful message */

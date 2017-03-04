@@ -27,7 +27,9 @@ class DialViewController: UIViewController {
     
     @IBOutlet weak var CallField: UITextField!
     
-
+    @IBOutlet weak var welcomeField: UILabel!
+    
+    
     internal func refresh(){
         manuallyRef(phone: myPhoneNo);
     }
@@ -51,7 +53,11 @@ class DialViewController: UIViewController {
                 }
                 
                 if (status == "canceled"){
+                    
+                    let welcome = value?["welcome"] as? String ?? ""
+                    
                     self.statusField.text! = "No answer."
+                    self.welcomeField.text! = welcome;
                     firebase!.child("users").child(myPhoneNo).updateChildValues(["status": "online"]);
                 }
                 
@@ -106,9 +112,6 @@ class DialViewController: UIViewController {
         //myPhoneNo = "";
         yourPhoneNo = "";
         firebase!.child("users").child(myPhoneNo).updateChildValues(["status": "offline"])
-        
-        
-        
         
         logout_newview();
         

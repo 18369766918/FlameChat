@@ -70,6 +70,8 @@ class mailBox: UIViewController{
             }
             
         })
+        
+        self.initializeMail();
 
         print("\n\nTTTTTTTTT")
         print(self.currentNo);
@@ -179,9 +181,38 @@ class mailBox: UIViewController{
             })
             
         }
-
-        
     }// end of delete
+    
+    
+    func initializeMail(){
+        self.currentNo = self.currentNo! + 1;
+        
+        if self.currentNo! > maxNum! {
+            self.currentNo = maxNum!;
+        }
+        
+        if self.currentNo! <= maxNum! {
+            
+            var get:String = "\(self.currentNo!)";
+            
+            firebase?.child("users").child(myPhoneNo).child("mailBox").child(get).observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as? NSDictionary
+                
+                var cont = value?["content"] as? String ?? ""
+                var tm = value?["time"] as? String ?? ""
+                var sd = value?["sender"] as? String ?? ""
+                
+                self.contents.text! = "Contents: "+cont
+                self.time.text! = "Time: "+tm
+                self.sender.text! = "Sender: "+sd
+                self.mailNo.text! = "No: "+get;
+                
+            })
+            
+        }
+        
+    }// end of initializeMail
+
     
 }
 
