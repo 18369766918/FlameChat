@@ -11,6 +11,9 @@ import Firebase
 
 var myPhoneNo = "";
 var yourPhoneNo = "";
+var theme = "";
+
+
 
 
 class Login: UIViewController {
@@ -117,7 +120,8 @@ class Login: UIViewController {
             firebase?.child("users").child(inputPhone).observeSingleEvent(of: .value, with: { (snapshot) in
                 let value = snapshot.value as? NSDictionary
                 let passwd = value?["passwd"] as? String ?? ""
-                
+                theme = value?["theme"] as? String ?? "" // get theme name
+
                 if(inputPasswd == passwd){
                     myPhoneNo = inputPhone;
                     firebase?.child("users").child(myPhoneNo).updateChildValues(["status": "online"])

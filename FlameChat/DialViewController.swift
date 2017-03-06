@@ -12,6 +12,7 @@ import Firebase
 var broadcast = "";
 var authno = "";
 
+
 class DialViewController: UIViewController {
 
     //点击空白区域隐藏键盘
@@ -80,6 +81,23 @@ class DialViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (theme == "blue") {
+            self.view.backgroundColor = UIColor(displayP3Red: 0.12, green: 0.29, blue: 0.58, alpha: 1)
+        }
+        if (theme == "grey") {
+            self.view.backgroundColor = UIColor.gray
+        }
+        if (theme == "pink") {
+            self.view.backgroundColor = UIColor(displayP3Red: 0.95, green: 0.64, blue: 0.59, alpha: 1)
+        }
+        if (theme == "green") {
+            self.view.backgroundColor = UIColor(displayP3Red: 0.49, green: 0.70, blue: 0.35, alpha: 1)
+        }
+        if (NIGHTMODE == "on"){
+            self.view.backgroundColor = UIColor.black;
+        }
+        
         
         self.phoneNo.text = "Your flameID: " + myPhoneNo; // display phone No.
         

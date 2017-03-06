@@ -9,6 +9,22 @@ class BeCallingView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if (theme == "blue") {
+            self.view.backgroundColor = UIColor(displayP3Red: 0.12, green: 0.29, blue: 0.58, alpha: 1)
+        }
+        if (theme == "grey") {
+            self.view.backgroundColor = UIColor.gray
+        }
+        if (theme == "pink") {
+            self.view.backgroundColor = UIColor(displayP3Red: 0.95, green: 0.64, blue: 0.59, alpha: 1)
+        }
+        if (theme == "green") {
+            self.view.backgroundColor = UIColor(displayP3Red: 0.49, green: 0.70, blue: 0.35, alpha: 1)
+        }
+        if (NIGHTMODE == "on"){
+            self.view.backgroundColor = UIColor.black;
+        }
+        
         /** display caller ID */
         firebase?.child("users").child(myPhoneNo).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user phone no value
@@ -20,7 +36,6 @@ class BeCallingView: UIViewController {
             self.callerID.text! = "Caller ID: " + yourPhoneNo;
             
         })
-        
     }
 
     override func didReceiveMemoryWarning() {
