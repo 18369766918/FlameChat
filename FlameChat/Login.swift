@@ -148,8 +148,22 @@ class Login: UIViewController {
                     self.loggedTest()
                     }
                 }
+                else{
+                    /** show login fail alert box */
+                    let failAlert = UIAlertController(title: "Wrong password or ID!", message: "", preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "Continue", style: .cancel, handler: nil)
+                    failAlert.addAction(defaultAction)
+                    self.present(failAlert, animated: true, completion: nil)
+                }
                 
             })
+        }
+        else{
+            /** show login fail alert box */
+            let failAlert = UIAlertController(title: "Can't be empty", message: "", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "Continue", style: .cancel, handler: nil)
+            failAlert.addAction(defaultAction)
+            self.present(failAlert, animated: true, completion: nil)
         }
         
     }

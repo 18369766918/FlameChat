@@ -63,8 +63,14 @@ class ChatView: UIViewController {
             // Get user phone no value
             let value = snapshot.value as? NSDictionary
             let yourName = value?["name"] as? String ?? ""
+            let gender = value?["gender"] as? String ?? ""
             
-            self.otherEmailField.text! = "Chatting with: " + yourName;
+            if(gender == "male"){
+                self.otherEmailField.text! = "Chatting with: " + yourName + "🙋‍♂️";
+            }
+            else{
+                self.otherEmailField.text! = "Chatting with: " + yourName + "🙋";
+            }
         })
         
         /** refresh */

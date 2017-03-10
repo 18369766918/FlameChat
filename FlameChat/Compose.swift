@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 
+var dateTime = ""
+
 class Compose: UIViewController {
     
     @IBOutlet weak var receiverField: UITextField!
@@ -53,10 +55,11 @@ class Compose: UIViewController {
             var newNum = num! + 1;
             mailNum = String(describing: newNum);
             
+            self.getTime();
             /** send mail to receiver */
             if(receiver != "" && content != ""){
                 firebase!.child("users").child(receiver).child("mailBox").updateChildValues(["mailNum": mailNum]);
-                firebase!.child("users").child(receiver).child("mailBox").child(mailNum).setValue(["time": "2017", "content": content, "sender": myPhoneNo])
+                firebase!.child("users").child(receiver).child("mailBox").child(mailNum).setValue(["time": dateTime, "content": content, "sender": myPhoneNo])
             }
             
         })
@@ -80,5 +83,11 @@ class Compose: UIViewController {
         content = tmp;
     }
     
+    func getTime(){
+        var date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd/yyyy,hh:mm:ss"
+        dateTime = formatter.string(from: date)
+    }
     
 }

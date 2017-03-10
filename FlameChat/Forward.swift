@@ -79,14 +79,21 @@ class Forward: UIViewController {
                 var newNum = num! + 1;
                 mailNum = String(describing: newNum);
                 
+                self.getTime();
                 /** send mail to receiver */
                 if(tmp != ""){
                     firebase!.child("users").child(phone).child("mailBox").updateChildValues(["mailNum": mailNum]);
-                    firebase!.child("users").child(phone).child("mailBox").child(mailNum).setValue(["time": "2017", "content": content, "sender": myPhoneNo])
+                    firebase!.child("users").child(phone).child("mailBox").child(mailNum).setValue(["time": dateTime, "content": content, "sender": myPhoneNo])
                 }
             })
 
         }
     }
 
+    func getTime(){
+        var date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd/yyyy,hh:mm:ss"
+        dateTime = formatter.string(from: date)
+    }
 }

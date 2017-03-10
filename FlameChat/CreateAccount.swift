@@ -9,6 +9,9 @@
 import UIKit
 
 class CreateAccount: UIViewController {
+    
+    @IBOutlet weak var genderSwitch: UISwitch!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,20 +52,49 @@ class CreateAccount: UIViewController {
             return
         }
         if(phone != "" && password != ""){
-            firebase?.child("users").child(phone).setValue(["status":"offline", "passwd": password, "name": name, "email": email, "welcome": "Please leave me a message."])
-            firebase?.child("users").child(phone).child("mailBox").setValue(["mailNum": "0", "AUTH": "0"]);
-           
-            /** show sign up successful message */
-            let alert = UIAlertController(title: "Thank you!", message: "Welcome, our new member!", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "Start chat now!", style: .cancel, handler: nil)
-            alert.addAction(defaultAction)
-            self.present(alert, animated: true, completion: nil)
             
+            var gender = ""
+            if genderSwitch.isOn{
+                gender = "female"
+            }
+            else{
+                gender = "male"
+            }
+            
+            firebase?.child("users").child(phone).observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user phone no value
+                let value = snapshot.value as? NSDictionary
+                let PASSWORD = value?["passwd"] as? String ?? ""
+               
+                print("=============")
+                print(PASSWORD)
+                print("=============")
+                
+                if(PASSWORD == ""){
+                    firebase?.child("users").child(phone).setValue(["status":"offline", "passwd": password, "name": name, "email": email, "welcome": "Please leave me a message.", "gender": gender])
+                    firebase?.child("users").child(phone).child("mailBox").setValue(["mailNum": "0", "AUTH": "0"]);
+                    
+                    /** show sign up successful message */
+                    let alert = UIAlertController(title: "Thank you!", message: "Welcome, our new member!", preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "Start chat now!", style: .cancel, handler: nil)
+                    alert.addAction(defaultAction)
+                    self.present(alert, animated: true, completion: nil)
 
+                }
+                else{
+                    /** show login fail alert box */
+                    let failAlert = UIAlertController(title: "User ID already exist!", message: "", preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "Continue", style: .cancel, handler: nil)
+                    failAlert.addAction(defaultAction)
+                    self.present(failAlert, animated: true, completion: nil)
+                }
+                
+            })
+            
+            
         }
 
     }
-    
     
     
     @IBAction func giveUp(_ sender: Any) {
