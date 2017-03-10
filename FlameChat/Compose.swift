@@ -74,4 +74,11 @@ class Compose: UIViewController {
         self.contentField.text! = ""
     }
     
+    
+    @IBAction func groupSend(_ sender: Any) {
+        var tmp = self.contentField.text!;
+        content = tmp;
+    }
+    
+    
 }

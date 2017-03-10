@@ -25,6 +25,7 @@
 		8DD2064D1E404EC30058B61E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DD2064B1E404EC30058B61E /* LaunchScreen.storyboard */; };
 		8DD206581E404EC40058B61E /* FlameChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD206571E404EC40058B61E /* FlameChatTests.swift */; };
 		8DD206631E404EC40058B61E /* FlameChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD206621E404EC40058B61E /* FlameChatUITests.swift */; };
+		8DDC720E1E73163F009E6599 /* Forward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDC720D1E73163F009E6599 /* Forward.swift */; };
 		8DE646B81E41900F006DD195 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE646B71E41900F006DD195 /* ComposeViewController.swift */; };
 		8DE646BA1E4196E0006DD195 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE646B91E4196E0006DD195 /* Login.swift */; };
 		8DFA13461E6A3376006EC841 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DFA13451E6A3376006EC841 /* GoogleService-Info.plist */; };
@@ -83,6 +84,7 @@
 		8DD2065E1E404EC40058B61E /* FlameChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlameChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD206621E404EC40058B61E /* FlameChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlameChatUITests.swift; sourceTree = "<group>"; };
 		8DD206641E404EC40058B61E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DDC720D1E73163F009E6599 /* Forward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forward.swift; sourceTree = "<group>"; };
 		8DE646B71E41900F006DD195 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		8DE646B91E4196E0006DD195 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		8DFA13451E6A3376006EC841 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				8DE646B71E41900F006DD195 /* ComposeViewController.swift */,
 				8DFA13471E6A7C14006EC841 /* ChangeWelcome.swift */,
 				8DFA13491E6A8523006EC841 /* Personalize.swift */,
+				8DDC720D1E73163F009E6599 /* Forward.swift */,
 			);
 			path = FlameChat;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				8DE646B81E41900F006DD195 /* ComposeViewController.swift in Sources */,
 				8DD206451E404EC30058B61E /* mailBox.swift in Sources */,
 				8D80D7661E4E3F7B002FC5F2 /* BeCallingView.swift in Sources */,
+				8DDC720E1E73163F009E6599 /* Forward.swift in Sources */,
 				8DD206431E404EC30058B61E /* AppDelegate.swift in Sources */,
 				8DFA134A1E6A8523006EC841 /* Personalize.swift in Sources */,
 				8D80D7681E4E77B6002FC5F2 /* ChatView.swift in Sources */,

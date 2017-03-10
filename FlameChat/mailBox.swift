@@ -10,6 +10,8 @@ import UIKit
 
 var myAUTH = "";
 
+var content = "";
+
 class mailBox: UIViewController{
     
     //@IBOutlet weak var tableView: UITableView!
@@ -122,6 +124,9 @@ class mailBox: UIViewController{
                 self.sender.text! = "Sender: "+sd
                 self.mailNo.text! = "No: "+get;
                 
+                content = cont;
+
+                
             })
             
         }
@@ -152,6 +157,7 @@ class mailBox: UIViewController{
                 self.sender.text! = "Sender: "+sd
                 self.mailNo.text! = "No: "+get;
                 
+                content = cont;
             })
             
         }
